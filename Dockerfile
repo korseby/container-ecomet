@@ -2,6 +2,8 @@ FROM ubuntu:16.04
 
 MAINTAINER Kristian Peters ( kpeters@ipb-halle.de )
 
+# docker build -t korseby/mtbls520 .
+
 # Add cran R backport
 RUN echo "deb http://cloud.r-project.org/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
