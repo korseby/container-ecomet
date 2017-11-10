@@ -2,6 +2,8 @@ FROM ubuntu:16.04
 
 MAINTAINER Kristian Peters ( kpeters@ipb-halle.de )
 
+ENV R_VERSION="3.4.2-2xenial2"
+
 # docker build -t korseby/mtbls520 .
 
 # Add cran R backport
@@ -9,8 +11,8 @@ RUN echo "deb http://cloud.r-project.org/bin/linux/ubuntu xenial/" >> /etc/apt/s
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 
 # Install R + packages
-RUN apt-get -y update && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install apt-transport-https r-base-dev=3.4.1-2xenial0 && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install make gcc gfortran g++ libnetcdf-dev libxml2-dev libblas-dev liblapack-dev libssl-dev pkg-config git xorg xorg-dev libglu1-mesa-dev libgl1-mesa-dev wget && \
+RUN apt-get -y update && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install apt-transport-https r-base-dev=${R_VERSION} && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install make gcc gfortran g++ libnetcdf-dev libxml2-dev libblas-dev liblapack-dev libssl-dev pkg-config git xorg xorg-dev libglu1-mesa-dev libgl1-mesa-dev wget zip unzip && \
     R -e 'source("https://bioconductor.org/biocLite.R"); biocLite("xcms")' && \
     R -e 'install.packages(c("irlba","igraph","XML","intervals"), repos="https://mirrors.ebi.ac.uk/CRAN/")' && \
     R -e 'install.packages("devtools", repos="https://mirrors.ebi.ac.uk/CRAN/")' && \

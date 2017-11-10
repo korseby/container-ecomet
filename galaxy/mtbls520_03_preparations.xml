@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--Proposed Tool Section: [Eco-Metabolomics]-->
-<tool id="mtbls520_03_preparations" name="mtbls520_03_preparations" version="0.1">
+<tool id="mtbls520_03_preparations" name="mtbls520_03_preparations" version="0.2">
   <requirements>
-    <container type="docker">container-registry.phenomenal-h2020.eu/phnmnl/ecomet</container>
+    <container type="docker">korseby/mtbls520</container>
   </requirements>
   <description>Preparations for MTBLS 520 study.</description>
   <command><![CDATA[
