@@ -5,6 +5,7 @@ MAINTAINER Kristian Peters ( kpeters@ipb-halle.de )
 ENV R_VERSION="3.4.2-2xenial2"
 
 # docker build -t korseby/mtbls520 .
+# docker push korseby/mtbls520
 
 # Add cran R backport
 RUN echo "deb http://cloud.r-project.org/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list && \
