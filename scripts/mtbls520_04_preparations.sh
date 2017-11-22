@@ -1,17 +1,18 @@
 #!/bin/bash
 
 # Check parameters
-if [[ $# -lt 4 ]]; then
+if [[ $# -lt 5 ]]; then
 	echo "Error! Not enough arguments given."
-	echo "Usage: \$0 polarity study.folder a.txt s.txt"
+	echo "Usage: \$0 polarity studyfile_names.txt studyfile_files.txt a.txt s.txt"
 	exit 1
 fi
 
 # Input parameters
 POLARITY="${1}"
-STUDY_DIR="${2}"
-ISA_A="${3}"
-ISA_S="${4}"
+STUDY_NAMES="${2}"
+STUDY_FILES="${3}"
+ISA_A="${4}"
+ISA_S="${5}"
 
 # Grab factors out of ISA-Tab
 MZML_FILES="$(cat ${ISA_A} | awk -F $'\t' '{ print $29 }' | sed -e "s/\"//g" | grep mzML | grep -v MM8)"
@@ -30,6 +31,18 @@ for ((i=0; i<=${#SEASONS[@]}; i++)); do
 	done
 done
 
+# Rename files
+STUDY_NAMES=(${STUDY_NAMES})
+STUDY_FILES=(${STUDY_FILES})
+NUMBER=${#STUDY_FILES[@]}
+
+for ((i=0; i<${NUMBER}; i++)); do
+	mv "${STUDY_FILES[${i}]}" "${STUDY_NAMES[${i}]}"
+done
+
+ls -al *.mzML
+ls -l *.mzML | wc -l
+
 # Convert variables to arrays
 SPECIES="$(cat ${ISA_A} | awk -F $'\t' '{ print $29 }' | sed -e "s/\"//g" | grep mzML | grep -v MM8 | sed -e "s/pos_[0-9][0-9]_//" | sed -e "s/_.*//")"
 SPECIES=(${SPECIES})
@@ -41,7 +54,7 @@ NUMBER=${#MZML_FILES[@]}
 
 # Move files to directories
 for ((i=0; i<${NUMBER}; i++)); do
-	mv "${STUDY_DIR}/${MZML_FILES[${i}]}" "input/${SEASON_DATES[${i}]}-${SEASONS[${i}]}/${SPECIES[${i}]}/${MZML_FILES[${i}]}"
+	mv "${MZML_FILES[${i}]}" "input/${SEASON_DATES[${i}]}-${SEASONS[${i}]}/${SPECIES[${i}]}/${MZML_FILES[${i}]}"
 done
 
 

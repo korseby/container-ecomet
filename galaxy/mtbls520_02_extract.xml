@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--Proposed Tool Section: [Eco-Metabolomics]-->
-<tool id="mtbls520_02_extract" name="mtbls520_02_extract" version="0.2">
+<tool id="mtbls520_02_extract" name="mtbls520_02_extract" version="0.3">
   <requirements>
     <container type="docker">korseby/mtbls520</container>
   </requirements>
@@ -14,18 +14,18 @@ mtbls520_02_extract.sh $infile $polarity studyfolder $studymaf qcfolder $qcmaf $
     <param name="polarity" type="text" value="pos" label="Polarity" help="Enter the polarity here, e.g. pos" />
   </inputs>
   <outputs>
-    <collection name="studyfiles" type="list" format="no_unzip.zip" label="RAW mzML files of the study" >
-      <discover_datasets pattern="__name__" directory="studyfolder" format="no_unzip.zip" visible="True" />
+    <collection name="studyfiles" type="list" format="mzml" label="MTBLS520: RAW mzML files" >
+      <discover_datasets pattern="__name__" directory="studyfolder" type="data" format="mzml" visible="false" />
     </collection>
-    <data name="studymaf" type="data" format="txt" label="MAF file containing the peak table of the study" />
-    <collection name="qcfiles" type="list" format="no_unzip.zip" label="Quality Control mzML files of the study" >
-      <discover_datasets pattern="__name__" directory="qcfolder" format="no_unzip.zip" visible="True" />
+    <data name="studymaf" type="data" format="tabular" label="MTBLS520: Peak table" />
+    <collection name="qcfiles" type="list" format="mzml" label="MTBLS520: QC mzML files" >
+      <discover_datasets pattern="__name__" directory="qcfolder" type="data" format="mzml" visible="false" />
     </collection>
-    <data name="qcmaf" type="data" format="txt" label="MAF file containing the peak table of the Quality Control" />
-    <data name="traitsfile" type="data" format="txt" label="Traits file containing table with ecological characteristics" />
-    <data name="phylofile" type="data" format="txt" label="Tree file containing the phylogeny tree of the species in the study" />
-    <data name="afile" type="data" format="txt" label="MetaboLights A file containing analytical metadata" />
-    <data name="sfile" type="data" format="txt" label="MetaboLights S file containing sample metadata" />
+    <data name="qcmaf" type="data" format="tabular" label="MTBLS520: QC peak table" />
+    <data name="traitsfile" type="data" format="txt" label="MTBLS520: Ecological characteristics" />
+    <data name="phylofile" type="data" format="txt" label="MTBLS520: Phylogeny tree" />
+    <data name="afile" type="data" format="tabular" label="MTBLS520: Analytical metadata" />
+    <data name="sfile" type="data" format="tabular" label="MTBLS520: Sample metadata" />
   </outputs>
   <help><![CDATA[
 This is the MTBLS520 study.

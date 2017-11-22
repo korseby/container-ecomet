@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--Proposed Tool Section: [Eco-Metabolomics]-->
-<tool id="mtbls520_03_preparations" name="mtbls520_03_preparations" version="0.2">
+<tool id="mtbls520_03_preparations" name="mtbls520_03_preparations" version="0.3">
   <requirements>
     <container type="docker">korseby/mtbls520</container>
   </requirements>
@@ -12,11 +12,11 @@ mtbls520_03_preparations.r $outfile1 2>&1;
   </command>
   <inputs>
     <param name="polarity" type="text" value="pos" label="Polarity" help="Enter the polarity here, e.g. pos" />
-    <param name="afile" type="data" format="txt" label="MetaboLights A file containing analytical metadata" />
-    <param name="sfile" type="data" format="txt" label="MetaboLights S file containing sample metadata" />
+    <param name="afile" type="data" format="tabular" label="MTBLS520: Analytical metadata" />
+    <param name="sfile" type="data" format="tabular" label="MTBLS520: Sample metadata" />
   </inputs>
   <outputs>
-    <data name="outfile1" type="data" format="rdata" optional="False" label="Output Rdata file." />
+    <data name="outfile1" type="data" format="rdata" optional="False" label="MTBLS520: Preprocess Rdata" />
   </outputs>
   <help><![CDATA[
 This is the MTBLS520 study.
