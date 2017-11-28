@@ -133,13 +133,8 @@ bina_list[bina_list != 0] <- 1
 rownames(bina_list) <- paste("pos_", unique(pcgroup), sep="")
 
 # Only unique compounds in one group and not the others
-if (all(as.character(sclass) == as.character(species))) { #species
-	uniq_list <- apply(X=bina_list, MARGIN=1,
-					   FUN=function(x) { if (length(unique(species[grepl("1", x)])) == 1) x else rep(0, length(x)) } )
-} else { #seasons
-	uniq_list <- apply(X=bina_list, MARGIN=1,
-					   FUN=function(x) { if (length(unique(seasons[grepl("1", x)])) == 1) x else rep(0, length(x)) } )
-}
+uniq_list <- apply(X=bina_list, MARGIN=1,
+		   FUN=function(x) { if (length(unique(species[grepl("1", x)])) == 1) x else rep(0, length(x)) } )
 uniq_list <- t(uniq_list)
 colnames(uniq_list) <- colnames(bina_list)
 

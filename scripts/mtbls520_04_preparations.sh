@@ -31,17 +31,16 @@ for ((i=0; i<=${#SEASONS[@]}; i++)); do
 	done
 done
 
-# Rename files
+# Link files
+STUDY_NAMES="$(cat /tmp/studyfile_names.txt | perl -pe 's/\,$//g')"
 STUDY_NAMES=(${STUDY_NAMES})
+STUDY_FILES="$(cat /tmp/studyfile_files.txt | perl -pe 's/\,$//g')"
 STUDY_FILES=(${STUDY_FILES})
 NUMBER=${#STUDY_FILES[@]}
 
 for ((i=0; i<${NUMBER}; i++)); do
-	mv "${STUDY_FILES[${i}]}" "${STUDY_NAMES[${i}]}"
+	ln -s "${STUDY_FILES[${i}]}" "${STUDY_NAMES[${i}]}"
 done
-
-ls -al *.mzML
-ls -l *.mzML | wc -l
 
 # Convert variables to arrays
 SPECIES="$(cat ${ISA_A} | awk -F $'\t' '{ print $29 }' | sed -e "s/\"//g" | grep mzML | grep -v MM8 | sed -e "s/pos_[0-9][0-9]_//" | sed -e "s/_.*//")"
@@ -52,10 +51,8 @@ SEASON_DATES="$(cat ${ISA_S} | awk -F $'\t' '{ print $29 }' | grep -v \"\" | sed
 SEASON_DATES=(${SEASON_DATES})
 NUMBER=${#MZML_FILES[@]}
 
-# Move files to directories
+# Move links to directories
 for ((i=0; i<${NUMBER}; i++)); do
-	mv "${MZML_FILES[${i}]}" "input/${SEASON_DATES[${i}]}-${SEASONS[${i}]}/${SPECIES[${i}]}/${MZML_FILES[${i}]}"
+	mv "${MZML_FILES[${i}]}" "input/${SEASON_DATES[${i}]}-${SEASONS[${i}]}/${SPECIES[${i}]}/"
 done
-
-
 
