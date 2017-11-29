@@ -21,7 +21,7 @@ RUN R -e 'install.packages("BiocInstaller", repos="http://bioconductor.org/packa
     R -e 'install.packages("devtools", repos="https://mirrors.ebi.ac.uk/CRAN/")' && \
     R -e 'library(devtools); install_github(repo="sneumann/CAMERA", ref="cbc9cdb2eba6438434c27fec5fa13c9e6fdda785")' && \
     R -e 'library(BiocInstaller); biocLite("multtest")' && \
-    R -e 'install.packages(c("RColorBrewer","Hmisc","gplots","multcomp","rgl","mixOmics","vegan","cba","nlme","ape","pvclust","dendextend","phangorn"), repos="https://mirrors.ebi.ac.uk/CRAN/")'
+    R -e 'install.packages(c("RColorBrewer","Hmisc","gplots","multcomp","rgl","mixOmics","vegan","cba","nlme","ape","pvclust","dendextend","phangorn","VennDiagram"), repos="https://mirrors.ebi.ac.uk/CRAN/")'
 RUN apt-get -y clean && apt-get -y autoremove && rm -rf /var/lib/{cache,log}/ /tmp/* /var/tmp/*
 
 # Add scripts to container
