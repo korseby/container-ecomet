@@ -110,13 +110,13 @@ mzml_names <- gsub('(.*)\\..*', '\\1', gsub('( |-|,)', '.', basename(mzml_files)
 
 # ---------- Define sample classes ----------
 # Sample classes: species
-species <<- as.factor(sapply(strsplit(as.character(mzml_names), "_"), function(x) {
+species <- as.factor(sapply(strsplit(as.character(mzml_names), "_"), function(x) {
 	nam <- x[3];
 	nam;
 }))
 
 # Sample classes: seasons
-seasons <<- as.factor(sapply(strsplit(as.character(mzml_files), " "), function(x) {
+seasons <- as.factor(sapply(strsplit(as.character(mzml_files), " "), function(x) {
 	if (grepl("summer",x)) nam <- "summer";
 	if (grepl("autumn",x)) nam <- "autumn";
 	if (grepl("winter",x)) nam <- "winter";
@@ -125,7 +125,7 @@ seasons <<- as.factor(sapply(strsplit(as.character(mzml_files), " "), function(x
 }))
 
 # Sample classes: seasonal species
-seasonal_species <<- as.factor(sapply(strsplit(as.character(mzml_files), "_"), function(x) {
+seasonal_species <- as.factor(sapply(strsplit(as.character(mzml_files), "_"), function(x) {
 	se <- as.factor(sapply(strsplit(as.character(x[2]), "/"), function(x) { x[1]; }))
 	sp <- as.factor(sapply(strsplit(as.character(x[2]), "/"), function(x) { x[2]; }))
 	nam <- paste(se, '_', sp, sep='')
@@ -133,31 +133,31 @@ seasonal_species <<- as.factor(sapply(strsplit(as.character(mzml_files), "_"), f
 }))
 
 # Sample classes: unique species-seasons-replicate
-spesearep <<- as.factor(sapply(strsplit(as.character(mzml_files), "_"), function(x) {
+spesearep <- as.factor(sapply(strsplit(as.character(mzml_files), "_"), function(x) {
 	se <- as.factor(sapply(strsplit(as.character(x[2]), "/"), function(x) { x[1]; }))
 	sp <- as.factor(sapply(strsplit(as.character(x[2]), "/"), function(x) { x[2]; }))
 	nam <- paste(sp, '_', se, sep='')
 	nam;
 }))
-spesearep <<- make.names(as.character(spesearep), unique=TRUE)
+spesearep <- make.names(as.character(spesearep), unique=TRUE)
 
 # Define species names, colors, symbols
-species_names <<- unique(species)
-species_colors <<- c("yellowgreen", "mediumseagreen", "darkorange1", "firebrick3", "darkolivegreen4", "dodgerblue4", "chocolate", "darkviolet", "darkkhaki")
-species_symbols <<- c(15, 16, 0, 1, 17, 8, 2, 5, 18)
+species_names <- unique(species)
+species_colors <- c("yellowgreen", "mediumseagreen", "darkorange1", "firebrick3", "darkolivegreen4", "dodgerblue4", "chocolate", "darkviolet", "darkkhaki")
+species_symbols <- c(15, 16, 0, 1, 17, 8, 2, 5, 18)
 
 # Define seasons names, colors, symbols
-seasons_names <<- unique(seasons)
-seasons_colors <<- c("darkgoldenrod3", "firebrick3", "deepskyblue3", "chartreuse3")
-seasons_symbols <<- c(1, 15, 16, 0)
+seasons_names <- unique(seasons)
+seasons_colors <- c("darkgoldenrod3", "firebrick3", "deepskyblue3", "chartreuse3")
+seasons_symbols <- c(1, 15, 16, 0)
 
 # Define samples colors
-species_samples_colors <<- sapply(species, function(x) { x <- species_colors[which(x==species_names)] } )
-seasons_samples_colors <<- sapply(seasons, function(x) { x <- seasons_colors[which(x==seasons_names)] } )
+species_samples_colors <- sapply(species, function(x) { x <- species_colors[which(x==species_names)] } )
+seasons_samples_colors <- sapply(seasons, function(x) { x <- seasons_colors[which(x==seasons_names)] } )
 
 # Define samples symbols
-species_samples_symbols <<- sapply(species, function(x) { x <- species_symbols[which(x==species_names)] } )
-seasons_samples_symbols <<- sapply(seasons, function(x) { x <- seasons_symbols[which(x==seasons_names)] } )
+species_samples_symbols <- sapply(species, function(x) { x <- species_symbols[which(x==species_names)] } )
+seasons_samples_symbols <- sapply(seasons, function(x) { x <- seasons_symbols[which(x==seasons_names)] } )
 
 
 
