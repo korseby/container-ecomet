@@ -20,6 +20,12 @@ if (length(args) < 1) {
 	quit(save="no", status=1, runLast=FALSE)
 }
 
+# Load libraries
+library(xcms)            # Swiss army knife for metabolomics
+library(multtest)        # For diffreport
+library(CAMERA)          # Metabolite Profile Annotation
+library(RColorBrewer)    # For colors
+
 
 
 # ---------- Global variables ----------

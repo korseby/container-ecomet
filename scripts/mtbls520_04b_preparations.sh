@@ -21,12 +21,12 @@ SPECIES="$(cat ${ISA_A} | awk -F $'\t' '{ print $29 }' | sed -e "s/\"//g" | grep
 SPECIES=(${SPECIES})
 SEASONS="$(cat ${ISA_A} | awk -F $'\t' '{ print $1 }' | sed -e "s/\"//g" | grep -v Sample | sed -e "s/_.*//" | sed -e 's/\(.*\)/\L\1/' | grep -v qc | awk '!a[$0]++')"
 SEASONS=(${SEASONS})
-SEASON_DATES="$(cat ${ISA_S} | awk -F $'\t' '{ print $29 }' | sed -e "s/\"//g" | grep -v Date | awk '!a[$0]++')"
+SEASON_DATES="$(cat ${ISA_S} | awk -F $'\t' '{ print $29 }' | grep -v \"\" | sed -e "s/\"//g" | grep -v Date | awk '!a[$0]++')"
 SEASON_DATES=(${SEASON_DATES})
 
 # Create directories
-for ((i=0; i<=${#SEASONS[@]}; i++)); do
-	for ((j=0; j<=${#SPECIES[@]}; j++)) do
+for ((i=0; i<${#SEASONS[@]}; i++)); do
+	for ((j=0; j<${#SPECIES[@]}; j++)) do
 		mkdir -p input/${SEASON_DATES[${i}]}-${SEASONS[${i}]}/${SPECIES[${j}]}
 	done
 done
