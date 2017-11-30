@@ -24,6 +24,12 @@ if (length(args) < 3) {
 load(file=args[1])
 args <- commandArgs(trailingOnly=TRUE)
 
+# Load libraries
+library(xcms)            # Swiss army knife for metabolomics
+library(multtest)        # For diffreport
+library(CAMERA)          # Metabolite Profile Annotation
+library(RColorBrewer)    # For colors
+
 
 
 # ---------- Create features list ----------
