@@ -27,7 +27,7 @@ SEASON_DATES=(${SEASON_DATES})
 # Create directories
 for ((i=0; i<${#SEASONS[@]}; i++)); do
 	for ((j=0; j<${#SPECIES[@]}; j++)) do
-		mkdir -p input/${SEASON_DATES[${i}]}-${SEASONS[${i}]}/${SPECIES[${j}]}
+		mkdir -p input/${SEASON_DATES[${i}]}_${SEASONS[${i}]}/${SPECIES[${j}]}
 	done
 done
 
@@ -53,6 +53,6 @@ NUMBER=${#MZML_FILES[@]}
 
 # Move links to directories
 for ((i=0; i<${NUMBER}; i++)); do
-	mv "${MZML_FILES[${i}]}" "input/${SEASON_DATES[${i}]}-${SEASONS[${i}]}/${SPECIES[${i}]}/"
+	mv "${MZML_FILES[${i}]}" "input/${SEASON_DATES[${i}]}_${SEASONS[${i}]}/${SPECIES[${i}]}/"
 done
 

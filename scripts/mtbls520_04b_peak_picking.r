@@ -119,8 +119,8 @@ peak_maf <- maf
 
 # ---------- Preprocess binary features list ----------
 # Get Reduced Peaklist
-#xcam_report <- getReducedPeaklist(peak_xcam, method="median", default.adduct.info="first", cleanup=FALSE)
-xcam_report <- peak_maf
+xcam_report <- getReducedPeaklist(peak_xcam, method="median", default.adduct.info="first", cleanup=FALSE)
+#xcam_report <- peak_maf
 
 # Diff report
 diff_list <- xcam_report
@@ -153,8 +153,8 @@ uniq_list <- t(uniq_list)
 
 # ---------- Preprocess features list ----------
 # Get Reduced Peaklist
-#xcam_report <- getReducedPeaklist(peak_xcam, method="median", default.adduct.info="first", cleanup=TRUE)
-xcam_report <- peak_maf
+xcam_report <- getReducedPeaklist(peak_xcam, method="median", default.adduct.info="first", cleanup=TRUE)
+#xcam_report <- peak_maf
 
 # Diff report
 diff_list <- xcam_report

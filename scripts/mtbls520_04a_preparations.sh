@@ -25,7 +25,7 @@ SEASON_DATES=(${SEASON_DATES})
 # Create fake directories
 for ((i=0; i<${#SEASONS[@]}; i++)); do
 	for ((j=0; j<${#SPECIES[@]}; j++)) do
-		mkdir -p input/${SEASON_DATES[${i}]}-${SEASONS[${i}]}/${SPECIES[${j}]}
+		mkdir -p input/${SEASON_DATES[${i}]}_${SEASONS[${i}]}/${SPECIES[${j}]}
 	done
 done
 
@@ -40,7 +40,7 @@ NUMBER=${#MZML_FILES[@]}
 
 # Create empty fake files in directories
 for ((i=0; i<${NUMBER}; i++)); do
-	touch "input/${SEASON_DATES[${i}]}-${SEASONS[${i}]}/${SPECIES[${i}]}/${MZML_FILES[${i}]}"
+	touch "input/${SEASON_DATES[${i}]}_${SEASONS[${i}]}/${SPECIES[${i}]}/${MZML_FILES[${i}]}"
 done
 
 
