@@ -25,6 +25,7 @@ load(file=args[1])
 args <- commandArgs(trailingOnly=TRUE)
 
 # Load libraries
+library(xcms)
 library(vegan)
 library(multcomp)               # For Tukey test
 library(Hmisc)                  # For correlation test
