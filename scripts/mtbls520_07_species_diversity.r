@@ -28,6 +28,7 @@ args <- commandArgs(trailingOnly=TRUE)
 library(vegan)
 library(multcomp)               # For Tukey test
 library(Hmisc)                  # For correlation test
+library(VennDiagram)            # For Venn Diagrams
 
 # These variables will be exported globally
 model_div <- NULL
@@ -59,15 +60,27 @@ tukey.test <- function(model) {
 
 
 
+# ---------- Tukey-Test ----------
+seasons.tukey.test <- function(model) {
+    div_anova <- aov(model)
+    div_mc <- multcomp::glht(div_anova, multcomp::mcp(seasons="Tukey"))
+    div_cld <- multcomp::cld(summary(div_mc), decreasing=TRUE, level=0.05)
+    div_tukey <- data.frame("tukey_groups"=div_cld$mcletters$Letters[match(seasons_names, names(div_cld$mcletters$Letters))])
+    return(div_tukey)
+}
+
+
+
 # ---------- Create diversity data frame ----------
 # Create data frame
-model_div <- data.frame(features = apply(X=bina_list, MARGIN=1, FUN=function(x) { sum(x) } ))
-model_div$unique    <- apply(X=uniq_list, MARGIN=1, FUN=function(x) { sum(x) } )
-model_div$diversity <- apply(X=uniq_list, MARGIN=1, FUN=function(x) { shannon.diversity(x) })
-model_div$shannon   <- apply(X=bina_list, MARGIN=1, FUN=function(x) { vegan::diversity(x, index="shannon") })
-model_div$simpson <- apply(X=bina_list, MARGIN=1, FUN=function(x) { vegan::diversity(x, index="simpson") })
-model_div$inverse <- apply(X=bina_list, MARGIN=1, FUN=function(x) { vegan::diversity(x, index="inv") })
-model_div$fisher  <- apply(X=bina_list, MARGIN=1, FUN=function(x) { fisher.alpha(x) })
+model_div               <- data.frame(features=apply(X=bina_list, MARGIN=1, FUN=function(x) { sum(x) } ))
+model_div$unique        <- apply(X=uniq_list, MARGIN=1, FUN=function(x) { sum(x) } )
+model_div$diversity     <- apply(X=uniq_list, MARGIN=1, FUN=function(x) { shannon.diversity(x) })
+model_div$shannon       <- apply(X=bina_list, MARGIN=1, FUN=function(x) { vegan::diversity(x, index="shannon") })
+model_div$simpson       <- apply(X=bina_list, MARGIN=1, FUN=function(x) { vegan::diversity(x, index="simpson") })
+model_div$inverse       <- apply(X=bina_list, MARGIN=1, FUN=function(x) { vegan::diversity(x, index="inv") })
+model_div$fisher        <- apply(X=bina_list, MARGIN=1, FUN=function(x) { fisher.alpha(x) })
+model_div$concentration <- apply(X=as.data.frame(mzml_files), MARGIN=1, FUN=function(x) { xr <- xcmsRaw(x); x <- sum(xr@env$intensity) } )
 
 # Remove NAs if present
 model_div[is.na(model_div)] <- 0

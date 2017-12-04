@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--Proposed Tool Section: [Eco-Metabolomics]-->
-<tool id="mtbls520_04a_preparations" name="mtbls520_04a_preparations" version="0.3">
+<tool id="mtbls520_04_preparations" name="mtbls520_04_preparations" version="0.4">
   <requirements>
     <container type="docker">korseby/mtbls520</container>
   </requirements>
   <description>Preparations for MTBLS 520 study.</description>
   <command><![CDATA[
-mtbls520_04a_preparations.sh $polarity $afile $sfile;
-mtbls520_04a_preparations.r $outfile1 2>&1;
+mtbls520_04a_preparations_for_maf.sh $polarity $afile $sfile;
+mtbls520_04_preparations.r $outfile1 2>&1;
   ]]>
   </command>
   <inputs>

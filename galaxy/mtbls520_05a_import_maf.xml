@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--Proposed Tool Section: [Eco-Metabolomics]-->
-<tool id="mtbls520_05_import_maf" name="mtbls520_05_import_maf" version="0.2">
+<tool id="mtbls520_05a_import_maf" name="mtbls520_05a_import_maf" version="0.3">
   <requirements>
     <container type="docker">korseby/mtbls520</container>
   </requirements>
   <description>Import MAF file from the MTBLS520 study.</description>
   <command><![CDATA[
-mtbls520_05_import_maf.r $infile1 $infile2 $outfile1 2>&1;
+mtbls520_05a_import_maf.r $infile1 $infile2 $outfile1 2>&1;
 exit $?;
   ]]>
   </command>

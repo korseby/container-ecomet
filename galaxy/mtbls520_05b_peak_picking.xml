@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--Proposed Tool Section: [Eco-Metabolomics]-->
-<tool id="mtbls520_04b_peak_picking" name="mtbls520_04b_peak_picking" version="0.3">
+<tool id="mtbls520_05b_peak_picking" name="mtbls520_05b_peak_picking" version="0.4">
   <requirements>
     <container type="docker">korseby/mtbls520</container>
   </requirements>
@@ -18,9 +18,9 @@ ${studyfile},
 ';
 echo \$studyfile_names | perl -pe 's/mzML\, /mzML\n/g' > /tmp/studyfile_names.txt;
 echo \$studyfile_files | perl -pe 's/dat\, /dat\n/g' > /tmp/studyfile_files.txt;
-mtbls520_04b_preparations.sh $polarity /tmp/studyfile_names.txt /tmp/studyfile_files.txt $afile $sfile;
-mtbls520_04a_preparations.r temp.rdata 2>&1;
-mtbls520_04b_peak_picking.r temp.rdata $outfile1 $outfile2 2>&1;
+mtbls520_04b_preparations_for_peak_picking.sh $polarity /tmp/studyfile_names.txt /tmp/studyfile_files.txt $afile $sfile;
+mtbls520_04_preparations.r temp.rdata 2>&1;
+mtbls520_05b_peak_picking.r temp.rdata $outfile1 $outfile2 2>&1;
   ]]>
   </command>
   <inputs>

@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--Proposed Tool Section: [Eco-Metabolomics]-->
-<tool id="mtbls520_11_species_varpart" name="mtbls520_11_species_varpart" version="0.2">
+<tool id="mtbls520_10_species_varpart" name="mtbls520_10_species_varpart" version="0.2">
   <requirements>
     <container type="docker">korseby/mtbls520</container>
   </requirements>
   <description>Perform variation partitioning on the data from the MTBLS520 study.</description>
   <command><![CDATA[
-mtbls520_11_species_varpart.r $infile1 $outfile1 2>&1;
+mtbls520_10_species_varpart.r $infile1 $outfile1 2>&1;
 exit $?;
   ]]>
   </command>
