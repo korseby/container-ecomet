@@ -35,7 +35,7 @@ onsite <- NULL
 
 
 # Import traits from csv
-traits <- read.csv(paste(mzml_dir,"/","traits","/","traits.csv",sep=""), header=TRUE, sep=";", quote="\"", fill=FALSE, dec=",", stringsAsFactors=FALSE)
+traits <- read.csv(args[2], header=TRUE, sep=";", quote="\"", fill=FALSE, dec=",", stringsAsFactors=FALSE)
 traits$Sample.Negative <- gsub('(.*)\\..*', '\\1', gsub('( |-|,)', '.', traits$Sample.Negativ))
 traits$Sample.Positive <- gsub('(.*)\\..*', '\\1', gsub('( |-|,)', '.', traits$Sample.Positiv))
 traits <- traits[match(mzml_names, traits$Sample.Positive),]
