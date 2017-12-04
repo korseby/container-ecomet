@@ -1,13 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--Proposed Tool Section: [Eco-Metabolomics]-->
-<tool id="mtbls520_06_import_traits" name="mtbls520_06_import_traits" version="0.2">
+<tool id="mtbls520_06_import_traits" name="mtbls520_06_import_traits" version="0.5">
   <requirements>
     <container type="docker">korseby/mtbls520</container>
   </requirements>
   <description>Import ecological characteristics file from the MTBLS520 study.</description>
+  <stdio>
+    <regex match="" source="stderr" level="warning" description="R messages" />
+    <exit_code range="1:" level="fatal" description="Tool error" />
+  </stdio>
   <command><![CDATA[
-mtbls520_06_import_traits.r $infile1 $infile2 $outfile1 2>&1;
-exit $?;
+mtbls520_06_import_traits.r $infile1 $infile2 $outfile1;
   ]]>
   </command>
   <inputs>

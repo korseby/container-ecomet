@@ -1,10 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--Proposed Tool Section: [Eco-Metabolomics]-->
-<tool id="mtbls520_03_quality_control" name="mtbls520_03_quality_control" version="0.3">
+<tool id="mtbls520_03_quality_control" name="mtbls520_03_quality_control" version="0.5">
   <requirements>
     <container type="docker">korseby/mtbls520</container>
   </requirements>
   <description>Quality Control of MTBLS 520 study.</description>
+  <stdio>
+    <regex match="" source="stderr" level="warning" description="R messages" />
+    <exit_code range="1:" level="fatal" description="Tool error" />
+  </stdio>
   <command><![CDATA[
 export studyfile_names=' 
 #for $studyfile in $studyfolder: 
@@ -19,7 +23,7 @@ ${studyfile},
 echo \$studyfile_names | perl -pe 's/mzML\, /mzML\n/g' > /tmp/studyfile_names.txt;
 echo \$studyfile_files | perl -pe 's/dat\, /dat\n/g' > /tmp/studyfile_files.txt;
 mtbls520_03_qc_preparations.sh $polarity $afile $sfile;
-mtbls520_03_qc_perform.r $outfile1 $outfile2 $outfile3 $outfile4 $outfile5 $outfile6 $outfile7 $outfile8 $outfile9 $outfile10 $outfile11 $outfile12 $outfile13 2>&1;
+mtbls520_03_qc_perform.r $outfile1 $outfile2 $outfile3 $outfile4 $outfile5 $outfile6 $outfile7 $outfile8 $outfile9 $outfile10 $outfile11 $outfile12 $outfile13;
   ]]>
   </command>
   <inputs>

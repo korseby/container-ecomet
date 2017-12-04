@@ -1,13 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--Proposed Tool Section: [Eco-Metabolomics]-->
-<tool id="mtbls520_24_seasons_nmds" name="mtbls520_24_seasons_nmds" version="0.2">
+<tool id="mtbls520_24_seasons_nmds" name="mtbls520_24_seasons_nmds" version="0.5">
   <requirements>
     <container type="docker">korseby/mtbls520</container>
   </requirements>
   <description>Perform Nonmetric Multidimensional Scaling (NMDS) for the seasons on the data from the MTBLS520 study.</description>
+  <stdio>
+    <regex match="" source="stderr" level="warning" description="R messages" />
+    <exit_code range="1:" level="fatal" description="Tool error" />
+  </stdio>
   <command><![CDATA[
-mtbls520_24_seasons_nmds.r $infile1 $outfile1 $outfile2 $outfile3 2>&1;
-exit $?;
+mtbls520_24_seasons_nmds.r $infile1 $outfile1 $outfile2 $outfile3;
   ]]>
   </command>
   <inputs>

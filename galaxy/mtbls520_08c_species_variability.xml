@@ -1,13 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--Proposed Tool Section: [Eco-Metabolomics]-->
-<tool id="mtbls520_08c_species_variability" name="mtbls520_08c_species_variability" version="0.3">
+<tool id="mtbls520_08c_species_variability" name="mtbls520_08c_species_variability" version="0.5">
   <requirements>
     <container type="docker">korseby/mtbls520</container>
   </requirements>
   <description>Show species variability from the MTBLS520 study.</description>
+  <stdio>
+    <regex match="" source="stderr" level="warning" description="R messages" />
+    <exit_code range="1:" level="fatal" description="Tool error" />
+  </stdio>
   <command><![CDATA[
-mtbls520_08c_species_variability.r $infile1 $outfile1 $outfile2 2>&1;
-exit $?;
+mtbls520_08c_species_variability.r $infile1 $outfile1 $outfile2;
   ]]>
   </command>
   <inputs>
