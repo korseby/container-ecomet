@@ -29,8 +29,8 @@ mtbls520_03_qc_perform.r $outfile1 $outfile2 $outfile3 $outfile4 $outfile5 $outf
   <inputs>
     <param name="polarity" type="text" value="pos" label="Polarity" help="Enter the polarity here, e.g. pos" />
     <param name="studyfolder" type="data" format="mzml" multiple="True" label="MTBLS520: QC mzML files" />
-    <param name="afile" type="data" format="tabular" label="MTBLS520: analytical metadata" />
-    <param name="sfile" type="data" format="tabular" label="MTBLS520: sample metadata" />
+    <param name="afile" type="data" format="tabular" label="MTBLS520: Analytical metadata" />
+    <param name="sfile" type="data" format="tabular" label="MTBLS520: Sample metadata" />
   </inputs>
   <outputs>
     <data name="outfile1" type="data" format="tabular" optional="False" label="MTBLS520: QC MAF file" />

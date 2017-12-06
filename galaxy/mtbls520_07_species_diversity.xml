@@ -34,7 +34,7 @@ mtbls520_07_species_diversity.r $infile1 $outfile1 $outfile2;
     <param name="infile1" type="data" format="rdata" optional="False" label="Input Rdata file." />
   </inputs>
   <outputs>
-    <data name="outfile1" type="data" format="txt" label="Species diversity indices CSV file" />
+    <data name="outfile1" type="data" format="csv" label="Species diversity indices" />
     <data name="outfile2" type="data" format="rdata" label="Rdata file" />
   </outputs>
   <help><![CDATA[

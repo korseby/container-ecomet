@@ -17,8 +17,8 @@ mtbls520_16_ecology_rda.r $infile1 $outfile1 $outfile2;
     <param name="infile1" type="data" format="rdata" optional="False" label="Input Rdata file." />
   </inputs>
   <outputs>
-    <data name="outfile1" type="data" format="txt" label="RDA envfit CSV" />
-    <data name="outfile2" type="data" format="pdf" label="RDA PDF plot" />
+    <data name="outfile1" type="data" format="txt" label="Summary of RDA envfit" />
+    <data name="outfile2" type="data" format="pdf" label="RDA plot" />
   </outputs>
   <help><![CDATA[
 This is the MTBLS520 study.

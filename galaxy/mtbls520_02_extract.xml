@@ -22,7 +22,7 @@ mtbls520_02_extract.sh $infile $polarity studyfolder $studymaf qcfolder $qcmaf $
       <discover_datasets pattern="__name__" directory="qcfolder" type="data" format="mzml" visible="false" />
     </collection>
     <data name="qcmaf" type="data" format="tabular" label="MTBLS520: QC peak table" />
-    <data name="traitsfile" type="data" format="txt" label="MTBLS520: Ecological characteristics" />
+    <data name="traitsfile" type="data" format="csv" label="MTBLS520: Ecological characteristics" />
     <data name="phylofile" type="data" format="txt" label="MTBLS520: Phylogeny tree" />
     <data name="afile" type="data" format="tabular" label="MTBLS520: Analytical metadata" />
     <data name="sfile" type="data" format="tabular" label="MTBLS520: Sample metadata" />
