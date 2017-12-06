@@ -23,6 +23,7 @@ if (length(args) < 2) {
 # Load R environment
 load(file=args[1])
 args <- commandArgs(trailingOnly=TRUE)
+library(xcms)
 
 
 

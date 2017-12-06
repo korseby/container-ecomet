@@ -17,7 +17,7 @@ mtbls520_19d_seasons_concentration.r $infile1 $outfile1;
     <param name="infile1" type="data" format="rdata" optional="False" label="Input Rdata file." />
   </inputs>
   <outputs>
-    <data name="outfile1" type="data" format="pdf" label="Seasons unique features PDF plot" />
+    <data name="outfile1" type="data" format="pdf" label="Seasons concentration PDF plot" />
   </outputs>
   <help><![CDATA[
 This is the MTBLS520 study.
