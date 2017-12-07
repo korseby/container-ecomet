@@ -39,10 +39,10 @@ touch ${S_FILE} || exit 10
 # Move files to their places
 mv output/${POLARITY}_MM8_*.mzML ${QC_FILES}/
 mv output/${POLARITY}_[0-9]*.mzML ${STUDY_FILES}/
-mv output/m_*_profiling_*${POLARITY}*v2.maf ${STUDY_MAF}
-mv output/m_*_quality_control_*${POLARITY}*v2.maf ${QC_MAF}
-mv output/a_*${POLARITY}*.txt ${A_FILE}
-mv output/s_*.txt ${S_FILE}
+mv output/m_bryos_metabolite_profiling_mass_spectrometry_${POLARITY}itive_mode.maf.tsv ${STUDY_MAF}
+mv output/m_bryos_quality_control_mass_spectrometry_${POLARITY}itive_mode.maf.tsv ${QC_MAF}
+mv output/a_bryos_metabolite_profiling_mass_spectrometry_${POLARITY}itive_mode.txt ${A_FILE}
+mv output/s_bryos.txt ${S_FILE}
 mv output/m_characteristics.csv ${TRAITS_FILE} 
 mv output/m_moss_phylo.tre ${PHYLO_FILE}
 
