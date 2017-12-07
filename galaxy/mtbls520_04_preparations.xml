@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--Proposed Tool Section: [Eco-Metabolomics]-->
-<tool id="mtbls520_04_preparations" name="mtbls520_04_preparations" version="0.5">
+<tool id="mtbls520_04_preparations" name="mtbls520_04_preparations" version="1.0">
   <requirements>
     <container type="docker">korseby/mtbls520</container>
   </requirements>
@@ -11,7 +11,7 @@
   </stdio>
   <command><![CDATA[
 mtbls520_04a_preparations_for_maf.sh $polarity $afile $sfile;
-mtbls520_04_preparations.r $outfile1;
+mtbls520_04_preparations.r $rdata;
   ]]>
   </command>
   <inputs>
@@ -20,7 +20,7 @@ mtbls520_04_preparations.r $outfile1;
     <param name="sfile" type="data" format="tabular" label="MTBLS520: Sample metadata" />
   </inputs>
   <outputs>
-    <data name="outfile1" type="data" format="rdata" optional="False" label="MTBLS520: Preprocess Rdata" />
+    <data name="rdata" type="data" format="rdata" optional="False" label="MTBLS520: Preprocess Rdata" />
   </outputs>
   <help><![CDATA[
 This is the MTBLS520 study.

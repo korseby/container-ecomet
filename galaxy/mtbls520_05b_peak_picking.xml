@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--Proposed Tool Section: [Eco-Metabolomics]-->
-<tool id="mtbls520_05b_peak_picking" name="mtbls520_05b_peak_picking" version="0.5">
+<tool id="mtbls520_05b_peak_picking" name="mtbls520_05b_peak_picking" version="1.0">
   <requirements>
     <container type="docker">korseby/mtbls520</container>
   </requirements>
@@ -24,7 +24,7 @@ echo \$studyfile_names | perl -pe 's/mzML\, /mzML\n/g' > /tmp/studyfile_names.tx
 echo \$studyfile_files | perl -pe 's/dat\, /dat\n/g' > /tmp/studyfile_files.txt;
 mtbls520_04b_preparations_for_peak_picking.sh $polarity /tmp/studyfile_names.txt /tmp/studyfile_files.txt $afile $sfile;
 mtbls520_04_preparations.r temp.rdata;
-mtbls520_05b_peak_picking.r temp.rdata $outfile1 $outfile2;
+mtbls520_05b_peak_picking.r temp.rdata $maf $rdata;
   ]]>
   </command>
   <inputs>
@@ -34,8 +34,8 @@ mtbls520_05b_peak_picking.r temp.rdata $outfile1 $outfile2;
     <param name="sfile" type="data" format="tabular" label="MTBLS520: sample metadata" />
   </inputs>
   <outputs>
-    <data name="outfile1" type="data" format="tabular" optional="False" label="MTBLS520: MAF file" />
-    <data name="outfile2" type="data" format="rdata" optional="False" label="MTBLS520: Preprocess Rdata file" />
+    <data name="maf" type="data" format="tabular" optional="False" label="Study MAF file" />
+    <data name="rdata" type="data" format="rdata" optional="False" label="Preprocess Rdata file" />
   </outputs>
   <help><![CDATA[
 This is the MTBLS520 study.
