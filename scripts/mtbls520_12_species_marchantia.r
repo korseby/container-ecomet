@@ -28,15 +28,14 @@ library(xcms)
 
 
 # ---------- Marchantia profile ----------
-# RAW chromatograms
-marpol_files <- mzml_files[grep("Marpol", mzml_files, invert=F)]
+# Third Marpol sample of summer
+sampind <- which(mzml_files==mzml_files[seasons=="summer" & species=="Marpol"][3])
 
 # Plot TIC
-marpol_TIC <- plotTIC(xcmsRaw(marpol_files[3]), ident=FALSE, msident=FALSE)
 pdf(args[2], encoding="ISOLatin1", pointsize=11, width=10, height=7, family="Helvetica")
 par(mar=c(4,4,1,1))
-plot(marpol_TIC, type="l", lwd=1, col="black",
-	 xlab="Retention Time [s]", xlim=c(190,950), ylab="Total Ion Count", ylim=c(200000,max(marpol_TIC)))
+plot(x=xchroms[[sampind]]$rt, y=xchroms[[sampind]]$tic, type="l", lwd=1, col="black",
+     xlab="Retention Time [s]", xlim=c(190,950), ylab="Total Ion Count", ylim=c(200000,max(xchroms[[sampind]]$tic)))
 
 text(273, 650000+115000, "  Isoscutellarein +", pos=1, cex=0.8)
 text(273, 650000+75000, "Glucuronides", pos=1, cex=0.8)

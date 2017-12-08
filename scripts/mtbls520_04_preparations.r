@@ -21,6 +21,7 @@ if (length(args) < 1) {
 }
 
 # Load libraries
+library(parallel)        # Detect number of cpu cores
 library(xcms)            # Swiss army knife for metabolomics
 library(multtest)        # For diffreport
 library(CAMERA)          # Metabolite Profile Annotation
@@ -30,7 +31,7 @@ library(RColorBrewer)    # For colors
 
 # ---------- Global variables ----------
 # Global variables for the experiment
-nSlaves <- 8
+nSlaves <- detectCores(all.tests=FALSE, logical=TRUE)
 polarity <- "positive"
 rt_range <- c(20,1020)
 ppm <- 30
@@ -158,6 +159,22 @@ seasons_samples_colors <- sapply(seasons, function(x) { x <- seasons_colors[whic
 # Define samples symbols
 species_samples_symbols <- sapply(species, function(x) { x <- species_symbols[which(x==species_names)] } )
 seasons_samples_symbols <- sapply(seasons, function(x) { x <- seasons_symbols[which(x==seasons_names)] } )
+
+
+
+# ---------- Save chromatograms ----------
+# Save chromatograms and intensities in list
+xchroms <- list()
+for (i in 1:length(mzml_files)) {
+	chroma <- xcmsRaw(mzml_files[i])
+	x <- chroma@scantime
+	#y <- scale(chroma@tic, center=FALSE)
+	y <- chroma@tic
+	int <- sum(chroma@env$intensity)
+	xchrom <- data.frame(x, y, int)
+	colnames(xchrom) <- c("rt", "tic", "int")
+	xchroms[[i]] <- xchrom
+}
 
 
 

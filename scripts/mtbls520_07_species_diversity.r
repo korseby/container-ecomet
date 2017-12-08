@@ -81,7 +81,7 @@ model_div$shannon       <- apply(X=bina_list, MARGIN=1, FUN=function(x) { vegan:
 model_div$simpson       <- apply(X=bina_list, MARGIN=1, FUN=function(x) { vegan::diversity(x, index="simpson") })
 model_div$inverse       <- apply(X=bina_list, MARGIN=1, FUN=function(x) { vegan::diversity(x, index="inv") })
 model_div$fisher        <- apply(X=bina_list, MARGIN=1, FUN=function(x) { fisher.alpha(x) })
-model_div$concentration <- apply(X=as.data.frame(mzml_files), MARGIN=1, FUN=function(x) { xr <- xcmsRaw(x); x <- sum(xr@env$intensity) } )
+model_div$concentration <- apply(X=as.data.frame(seq(1,length(mzml_files))), MARGIN=1, FUN=function(x) { x <- sum(xchroms[[x]]$int) } )
 
 # Remove NAs if present
 model_div[is.na(model_div)] <- 0

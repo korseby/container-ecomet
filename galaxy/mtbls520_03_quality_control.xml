@@ -28,7 +28,7 @@ mtbls520_03_qc_perform.r $qcmaf $qcrtcorr $qcmzrtdev $qcmzdev $qcrtdev $qcchroma
   </command>
   <inputs>
     <param name="polarity" type="text" value="pos" label="Polarity" help="Enter the polarity here, e.g. pos" />
-    <param name="studyfolder" type="data" format="mzml" multiple="True" label="MTBLS520: QC mzML files" />
+    <param name="studyfolder" type="data_collection" collection_type="list" format="mzml" multiple="true" label="MTBLS520: QC mzML files" />
     <param name="afile" type="data" format="tabular" label="MTBLS520: Analytical metadata" />
     <param name="sfile" type="data" format="tabular" label="MTBLS520: Sample metadata" />
   </inputs>

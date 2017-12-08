@@ -30,7 +30,7 @@ library(multcomp)        # For tukey test
 
 # ---------- Global variables ----------
 # Global variables for the experiment
-nSlaves <- 8
+nSlaves <- detectCores(all.tests=FALSE, logical=TRUE)
 polarity <- "positive"
 rt_range <- c(20,1020)
 ppm <- 30
