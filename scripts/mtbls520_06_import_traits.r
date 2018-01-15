@@ -41,7 +41,9 @@ traits$Sample.Positive <- gsub('(.*)\\..*', '\\1', gsub('( |-|,)', '.', traits$S
 traits <- traits[match(mzml_names, traits$Sample.Positive),]
 
 # Create data frame with characteristics
-charist <- as.data.frame(traits[,c("Sample","Season","Code","Species")])
+charist <- as.data.frame(traits[,c("Sample","Season","Code","Species","Family","Type")])
+charist <- cbind(charist, as.data.frame(model.matrix(~ 0 + Family, data=traits)))
+charist <- cbind(charist, as.data.frame(model.matrix(~ 0 + Type, data=traits)))
 
 # Convert Ellenberg factors to ordinal or binary matrix
 charist <- cbind(charist, traits[,c("Light.index","Temperature.index","Continentality.index","Moisture.index","Reaction.index","Nitrogen.index")])
@@ -67,12 +69,12 @@ charist <- cbind(charist, as.data.frame(model.matrix(~ 0 + Season, data=traits))
 charist <- cbind(charist, as.data.frame(model.matrix(~ 0 + Code, data=traits)))
 
 # On-site characteristics (immediate growth conditions)
-onsite <- as.data.frame(traits[,c("Sample","Season","Code","Species")])
+onsite <- as.data.frame(traits[,c("Sample","Season","Code","Species","Family","Type")])
 onsite <- cbind(onsite, as.data.frame(model.matrix(~ 0 + Freshweight, data=traits)))
 onsite <- cbind(onsite, as.data.frame(model.matrix(~ 0 + Onsite_Substrate, data=traits)))
 onsite <- cbind(onsite, as.data.frame(model.matrix(~ 0 + Onsite_Light, data=traits)))
 onsite <- cbind(onsite, as.data.frame(model.matrix(~ 0 + Onsite_Moisture, data=traits)))
-onsite <- cbind(onsite, as.data.frame(model.matrix(~ 0 + Exposition, data=traits)))
+onsite <- cbind(onsite, as.data.frame(model.matrix(~ 0 + Onsite_Exposition, data=traits)))
 onsite <- cbind(onsite, as.data.frame(model.matrix(~ 0 + Season, data=traits)))
 onsite <- cbind(onsite, as.data.frame(model.matrix(~ 0 + Code, data=traits)))
 
