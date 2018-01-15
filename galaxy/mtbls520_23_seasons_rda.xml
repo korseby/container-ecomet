@@ -10,7 +10,7 @@
     <exit_code range="1:" level="fatal" description="Tool error" />
   </stdio>
   <command><![CDATA[
-mtbls520_23_seasons_rda.r $infile1 $outfile1i $outfile2;
+mtbls520_23_seasons_rda.r $infile1 $outfile1 $outfile2;
   ]]>
   </command>
   <inputs>
