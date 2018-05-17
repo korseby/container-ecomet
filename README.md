@@ -32,9 +32,6 @@ The workflow should be started with the following parameter settings:
 ## Instrument Data Types
 - MS / LC-MS
 
-## Container Contributors
-- [Kristian Peters](https://github.com/korseby) (IPB-Halle)
-
 ## Website
 TODO: ZENODO
 
