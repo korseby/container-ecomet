@@ -4,6 +4,9 @@ This repository includes code to run the Galaxy workflow, which processes the MT
 ## Short Description
 This repository includes code for a Galaxy workflow to process the MTBLS520 dataset [3], which was generated from 108 samples of 9 bryophyte species obtained in four seasons using an untargeted liquid chromatography coupled with mass spectrometry (LC/MS) acquisition method.
 
+## Version
+Version: 1.1
+
 ## Description
 In the research field of Eco-Metabolomics, non-model organisms are typically studied in their natural environment and relations are made between biochemistry and ecological function. Current challenges when processing such data involve, among others, complex ecological experiment designs, peak detection parameter settings and high variation of metabolite profiles of different species. Here, we present code for a Galaxy workflow to process a dataset generated from 108 samples of 9 bryophyte species obtained in four seasons using an untargeted liquid chromatography coupled with mass spectrometry (LC/MS) acquisition method. With this computational workflow, we address the challenges in data processing and present a reproducible and reusable method implemented in Galaxy focusing on data import, standard formats, technical validation, peak detection and multivariate statistics. We expect the presented workflow will encourage researchers to conduct subsequent Eco-Metabolomics studies.
 
