@@ -9,7 +9,7 @@ fi
 
 # Input parameters
 INPUT="${1}"
-POLARITY="echo ${2} | cut -c1-3"
+POLARITY="echo ${2} | cut -c 1-3"
 
 # Output parameters
 STUDY_FILES="${3}"

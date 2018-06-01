@@ -8,7 +8,7 @@ if [[ $# -lt 5 ]]; then
 fi
 
 # Input parameters
-POLARITY="echo ${1} | cut -c1-3"
+POLARITY="echo ${1} | cut -c 1-3"
 STUDY_NAMES="${2}"
 STUDY_FILES="${3}"
 ISA_A="${4}"
