@@ -8,7 +8,8 @@ if [[ $# -lt 3 ]]; then
 fi
 
 # Input parameters
-POLARITY="echo ${1} | cut -c 1-3"
+POLARITY="${1}"
+POL="$(echo ${1} | cut -c 1-3)"
 ISA_A="${2}"
 ISA_S="${3}"
 

@@ -8,7 +8,8 @@ if [[ $# -lt 5 ]]; then
 fi
 
 # Input parameters
-POLARITY="echo ${1} | cut -c 1-3"
+POLARITY="${1}"
+POL="$(echo ${1} | cut -c 1-3)"
 STUDY_NAMES="${2}"
 STUDY_FILES="${3}"
 ISA_A="${4}"
@@ -17,7 +18,7 @@ ISA_S="${5}"
 # Grab factors out of ISA-Tab
 MZML_FILES="$(cat ${ISA_A} | awk -F $'\t' '{ print $29 }' | sed -e "s/\"//g" | grep mzML | grep -v MM8)"
 MZML_FILES=(${MZML_FILES})
-SPECIES="$(cat ${ISA_A} | awk -F $'\t' '{ print $29 }' | sed -e "s/\"//g" | grep mzML | grep -v MM8 | sed -e "s/${POLARITY}_[0-9][0-9]_//" | sed -e "s/_.*//" | awk '!a[$0]++')"
+SPECIES="$(cat ${ISA_A} | awk -F $'\t' '{ print $29 }' | sed -e "s/\"//g" | grep mzML | grep -v MM8 | sed -e "s/${POL}_[0-9][0-9]_//" | sed -e "s/_.*//" | awk '!a[$0]++')"
 SPECIES=(${SPECIES})
 SEASONS="$(cat ${ISA_A} | awk -F $'\t' '{ print $1 }' | sed -e "s/\"//g" | grep -v Sample | sed -e "s/_.*//" | sed -e 's/\(.*\)/\L\1/' | grep -v qc | awk '!a[$0]++')"
 SEASONS=(${SEASONS})
@@ -43,7 +44,7 @@ for ((i=0; i<${NUMBER}; i++)); do
 done
 
 # Convert variables to arrays
-SPECIES="$(cat ${ISA_A} | awk -F $'\t' '{ print $29 }' | sed -e "s/\"//g" | grep mzML | grep -v MM8 | sed -e "s/${POLARITY}_[0-9][0-9]_//" | sed -e "s/_.*//")"
+SPECIES="$(cat ${ISA_A} | awk -F $'\t' '{ print $29 }' | sed -e "s/\"//g" | grep mzML | grep -v MM8 | sed -e "s/${POL}_[0-9][0-9]_//" | sed -e "s/_.*//")"
 SPECIES=(${SPECIES})
 SEASONS="$(cat ${ISA_A} | awk -F $'\t' '{ print $1 }' | sed -e "s/\"//g" | grep -v Sample | sed -e "s/_.*//" | sed -e 's/\(.*\)/\L\1/' | grep -v qc)"
 SEASONS=(${SEASONS})
