@@ -282,7 +282,7 @@ colnames(qc_MM8) <- MM8$compound
 rownames(qc_MM8) <- qc_names
 
 for (i in 1:nrow(MM8)) {
-	qc_MM8[,i] <- as.numeric(qc_list[sqrt(qc_list$rt>=MM8$rt[i]-MM8_rt_shift & qc_list$rt<=MM8$rt[i]+MM8_rt_shift & qc_list$mz>=MM8$mz[i]-MM8_mz_shift & qc_list$mz<=MM8$mz[i]+MM8_mz_shift), which(colnames(qc_list) %in% qc_names)])
+	qc_MM8[,i] <- as.numeric(qc_list[qc_list$rt>=MM8$rt[i]-MM8_rt_shift & qc_list$rt<=MM8$rt[i]+MM8_rt_shift & qc_list$mz>=MM8$mz[i]-MM8_mz_shift & qc_list$mz<=MM8$mz[i]+MM8_mz_shift, which(colnames(qc_list) %in% qc_names)])
 }
 
 # Calculate variation of MM8 compound intensities
@@ -294,7 +294,7 @@ for (i in 1:nrow(MM8)) MM8[i, "sd_into"] <- sd(qc_MM8[,i])
 
 # Plot variation of MM8 compounds in the samples
 pdf(args[11], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
-boxplot(qc_MM8, main="Variation of MM8 compound intensities", xlab="compounds", ylab="iTIC [log(into)]", names=NA)
+boxplot(qc_MM8, main="Variation of MM8 compound intensities", xlab="compounds", ylab="TIC [log(into)]", names=NA)
 text(1:ncol(qc_MM8), par("usr")[3]-(par("usr")[4]-par("usr")[3])/12, srt=-22.5, adj=c(0.5,1), labels=colnames(qc_MM8), xpd=TRUE, cex=0.9)
 dev.off()
 
