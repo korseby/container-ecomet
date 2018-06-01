@@ -266,14 +266,14 @@ dev.off()
 
 # Check whether MM8 compounds have been picked by XCMS
 MM8 <- NULL
-MM8 <- rbind(MM8, data.frame(compound="alpha-Phenylglycin", rt=39,  mz=135.044))
-MM8 <- rbind(MM8, data.frame(compound="Kinetin",            rt=186, mz=216.088))
-MM8 <- rbind(MM8, data.frame(compound="Rutin",              rt=270, mz=611.161))
-MM8 <- rbind(MM8, data.frame(compound="o-Anissaeure",       rt=270, mz=135.044))
-MM8 <- rbind(MM8, data.frame(compound="Phlorizin",          rt=321, mz=459.126))
-MM8 <- rbind(MM8, data.frame(compound="IAA Val",            rt=375, mz=275.139))
-MM8 <- rbind(MM8, data.frame(compound="Indolacetonitril",   rt=390, mz=130.065))
-MM8 <- rbind(MM8, data.frame(compound="Biochanin",          rt=534, mz=285.076))
+MM8 <- rbind(MM8, data.frame(compound="2-Phenylglycine",             rt=39,  mz=135.044))
+MM8 <- rbind(MM8, data.frame(compound="Kinetin",                     rt=186, mz=216.088))
+MM8 <- rbind(MM8, data.frame(compound="Rutin",                       rt=270, mz=611.161))
+MM8 <- rbind(MM8, data.frame(compound="O-Methylsalicylic acid",      rt=270, mz=135.044))
+MM8 <- rbind(MM8, data.frame(compound="Phlorizin dihydrate",         rt=321, mz=459.126))
+MM8 <- rbind(MM8, data.frame(compound="N-(3-Indolyacetyl)-L-valine", rt=375, mz=275.139))
+MM8 <- rbind(MM8, data.frame(compound="3-Indolylacetonitrile",       rt=390, mz=130.065))
+MM8 <- rbind(MM8, data.frame(compound="Biochanin A",                 rt=534, mz=285.076))
 MM8_rt_shift <- 4
 MM8_mz_shift <- 0.1
 
