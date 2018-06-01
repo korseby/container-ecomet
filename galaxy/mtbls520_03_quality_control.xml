@@ -23,11 +23,14 @@ ${studyfile},
 echo \$studyfile_names | perl -pe 's/mzML\, /mzML\n/g' > /tmp/studyfile_names.txt;
 echo \$studyfile_files | perl -pe 's/dat\, /dat\n/g' > /tmp/studyfile_files.txt;
 mtbls520_03_qc_preparations.sh $polarity $afile $sfile;
-mtbls520_03_qc_perform.r $qcmaf $qcrtcorr $qcmzrtdev $qcmzdev $qcrtdev $qcchroma $qcprofiles $qcstacked $qchist $qcvar $qccompounds $qcpca $qcrdata;
+mtbls520_03_qc_perform.r $polarity $qcmaf $qcrtcorr $qcmzrtdev $qcmzdev $qcrtdev $qcchroma $qcprofiles $qcstacked $qchist $qcvar $qccompounds $qcpca $qcrdata;
   ]]>
   </command>
   <inputs>
-    <param name="polarity" type="text" value="pos" label="Polarity" help="Enter the polarity here, e.g. pos" />
+    <param name="polarity" type="select" value="positive" optional="False" label="MTBLS520: polarity" help="The polarity used for the mode of acquisition">
+	    <option value="positive" selected="True">positive</option>
+	    <option value="negative">negative</option>
+	</param>
     <param name="studyfolder" type="data_collection" collection_type="list" format="mzml" multiple="true" label="MTBLS520: QC mzML files" />
     <param name="afile" type="data" format="tabular" label="MTBLS520: Analytical metadata" />
     <param name="sfile" type="data" format="tabular" label="MTBLS520: Sample metadata" />

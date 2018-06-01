@@ -14,9 +14,9 @@ options(stringAsfactors=FALSE, useFancyQuotes=FALSE)
 
 # Take in trailing command line arguments
 args <- commandArgs(trailingOnly=TRUE)
-if (length(args) < 13) {
+if (length(args) < 14) {
 	print("Error! No or not enough arguments given.")
-	print("Usage: $0 export.maf rtcor.pdf mzdevtime.pdf mzdevsample.pdf rtdevsample.pdf MM8_chromatograms.pdf plot_normal.pdf plot_stacked.pdf histograms.pdf MM8_variation.pdf MM8_compounds.pdf pca.pdf output.rdata")
+	print("Usage: $0 polarity export.maf rtcor.pdf mzdevtime.pdf mzdevsample.pdf rtdevsample.pdf MM8_chromatograms.pdf plot_normal.pdf plot_stacked.pdf histograms.pdf MM8_variation.pdf MM8_compounds.pdf pca.pdf output.rdata")
 	quit(save="no", status=1, runLast=FALSE)
 }
 
@@ -31,7 +31,8 @@ library(multcomp)        # For tukey test
 # ---------- Global variables ----------
 # Global variables for the experiment
 nSlaves <- 1
-polarity <- "positive"
+polarity <- args[1]
+pol <- substr(x=polarity, start=1, stop=3)
 rt_range <- c(20,1020)
 ppm <- 30
 peakwidth <- c(5,12)
@@ -78,7 +79,7 @@ qc_files <- list.files(mzml_dir, pattern="*.mzML", recursive=T, full.names=T)
 
 # Only include MM8 blanks
 qc_files <- qc_files[grep("MM8", qc_files, invert=F)]
-qc_files <- qc_files[grep("neg", qc_files, invert=T)]
+qc_files <- qc_files[grep(pol, qc_files, invert=F)]
 
 # Basenames of files without path and without extension
 qc_names <- gsub('(.*)\\..*', '\\1', gsub('( |-|,)', '.', basename(qc_files)))
@@ -130,7 +131,7 @@ xset@phenoData <- phenodata_new
 xset2 <- group(xset)
 
 # Retention time correction
-pdf(args[2], encoding="ISOLatin1", pointsize=10, width=8, height=8, family="Helvetica")
+pdf(args[3], encoding="ISOLatin1", pointsize=10, width=8, height=8, family="Helvetica")
 par(cex=0.8)
 xset4 <- retcor(xset2, method="loess", family="gaussian", plottype="mdevden",
 				missing=10, extra=1, span=2)
@@ -140,17 +141,17 @@ dev.off()
 xset5 <- group(xset4, bw=10)
 
 # QC plots
-pdf(args[3], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
+pdf(args[4], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
 plotQC(xset5, what="mzdevtime")
 dev.off()
 
-pdf(args[4], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
+pdf(args[5], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
 par(cex.axis=0.6, mar=c(8,4,4,1))
 plotQC(xset5, what="mzdevsample", sampColors=qc_batch_samples_colors)
 title(main="Median m/z deviation")
 dev.off()
 
-pdf(args[5], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
+pdf(args[6], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
 par(cex.axis=0.6, mar=c(8,4,4,1))
 plotQC(xset5, what="rtdevsample", sampColors=qc_batch_samples_colors)
 title(main="Median RT deviation")
@@ -160,7 +161,7 @@ dev.off()
 xset_peaks <- peakTable(xset5)
 
 # More meaningful rownames
-rownames(xset_peaks) <- paste("pos_", rownames(xset_peaks), sep="")
+rownames(xset_peaks) <- paste(pol, "_", rownames(xset_peaks), sep="")
 
 # Log transformation of intensities
 xset_peaks[,which(colnames(xset_peaks) %in% qc_names)] <- log(xset_peaks[,which(colnames(xset_peaks) %in% qc_names)])
@@ -205,7 +206,7 @@ maf <- apply(data.frame(database_identifier = character(l),
 		 2, as.character)
 
 # Export MAF
-write.table(maf, file=args[1], row.names=FALSE, col.names=colnames(maf), quote=TRUE, sep="\t", na="\"\"")
+write.table(maf, file=args[2], row.names=FALSE, col.names=colnames(maf), quote=TRUE, sep="\t", na="\"\"")
 
 
 
@@ -222,7 +223,7 @@ for (i in 1:length(qc_files)) {
 }
 
 # Plot chromatograms
-pdf(args[6], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
+pdf(args[7], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
 plot(0, 0, type="n", xlim=c(0,1200), ylim=c(10,15), main="Chromatograms of all MM8", xlab="rt", ylab="TIC [log(into)]")
 for (i in 1:length(qc_files)) 
     lines(xchroms[[i]]$rt, xchroms[[i]]$tic, lwd=1, col=qc_batch_colors[which(qc_batch[i]==qc_batch_names)])
@@ -236,14 +237,14 @@ qc_stacked[,"sample"] <- sapply(qc_stacked[,"sample"], FUN = function(x) { x <- 
 qc_stacked$into <- log(qc_stacked$into)
 
 # QC stacked plot
-pdf(args[7], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
+pdf(args[8], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
 qc_stacked_samples_colors <- sapply(qc_stacked[,"batch"], function(x) { x <- qc_batch_colors[which(x==qc_batch_names)] } )
 plot(qc_stacked[,c("rt","into")], pch=20, cex=0.4, xlab="rt", ylab="TIC [log(into)]", col=qc_stacked_samples_colors, main="QC plot")
 legend("topleft", bty="n", pt.cex=0.5, cex=0.7, y.intersp=0.7, text.width=0.5, pch=20, col=qc_batch_colors, legend=qc_batch_names)
 dev.off()
 
 # Stacked QC plot
-pdf(args[8], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
+pdf(args[9], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
 plot(0, 0, type="n", xlim=c(0,max(qc_stacked$rt)*4), ylim=c(min(qc_stacked$into),max(qc_stacked$into)),
 	 xaxt="n", xlab="rt", ylab="TIC [log(into)]", main="Stacked QC plot")
 abline(v=c(1200,2400,3600), col='grey')
@@ -255,7 +256,7 @@ text(ax, par("usr")[3]-(par("usr")[4]-par("usr")[3])/16, labels=c(0,300,"",900, 
 dev.off()
 
 # Stacked histogram of intensities
-pdf(args[9], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
+pdf(args[10], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
 plot(density(qc_stacked[qc_stacked$batch=="winter","into"]), col=qc_batch_colors[which(qc_batch_names=="winter")], lwd=3, xlim=c(3,15), main="Density plot of log intensities")
 lines(density(qc_stacked[qc_stacked$batch=="summer","into"]), col=qc_batch_colors[which(qc_batch_names=="summer")], lwd=3)
 lines(density(qc_stacked[qc_stacked$batch=="autumn","into"]), col=qc_batch_colors[which(qc_batch_names=="autumn")], lwd=3)
@@ -292,13 +293,13 @@ MM8$sd_into <- 0
 for (i in 1:nrow(MM8)) MM8[i, "sd_into"] <- sd(qc_MM8[,i])
 
 # Plot variation of MM8 compounds in the samples
-pdf(args[10], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
+pdf(args[11], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
 boxplot(qc_MM8, main="Variation of MM8 compound intensities", xlab="compounds", ylab="iTIC [log(into)]", names=NA)
 text(1:ncol(qc_MM8), par("usr")[3]-(par("usr")[4]-par("usr")[3])/12, srt=-22.5, adj=c(0.5,1), labels=colnames(qc_MM8), xpd=TRUE, cex=0.9)
 dev.off()
 
 # Plot MM8 compounds in each sample
-pdf(args[11], encoding="ISOLatin1", pointsize=10, width=20, height=10, family="Helvetica")
+pdf(args[12], encoding="ISOLatin1", pointsize=10, width=20, height=10, family="Helvetica")
 par(mfrow=c(2,4), cex=1.2)
 rtwin <- 8
 for (j in 1:nrow(MM8)) {
@@ -314,7 +315,7 @@ for (j in 1:nrow(MM8)) {
 dev.off()
 
 # Basic PCA
-pdf(args[12], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
+pdf(args[13], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
 pca_list <- qc_list[,which(colnames(qc_list) %in% qc_names)]
 pca_list[is.na(pca_list)] <- 0
 model_pca <- prcomp(x=pca_list, scale=TRUE)
@@ -326,5 +327,5 @@ dev.off()
 
 
 # ---------- Save R environment ----------
-save.image(file=args[13])
+save.image(file=args[14])
 

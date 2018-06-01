@@ -11,7 +11,10 @@ mtbls520_02_extract.sh $mtbls520 $polarity rawfolder rawmaf qcfolder $qcmaf trai
   </command>
   <inputs>
     <param name="mtbls520" type="data" format="zip" label="Zipped MTBLS520 study" />
-    <param name="polarity" type="text" value="pos" label="Polarity" help="Enter the polarity here, e.g. pos" />
+    <param name="polarity" type="select" value="positive" optional="False" label="MTBLS520: polarity" help="The polarity used for the mode of acquisition">
+	    <option value="positive" selected="True">positive</option>
+	    <option value="negative">negative</option>
+	</param>
   </inputs>
   <outputs>
     <collection name="qcfiles" type="list" format="mzml" label="MTBLS520: QC mzML files" >
