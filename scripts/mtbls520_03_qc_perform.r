@@ -224,7 +224,11 @@ for (i in 1:length(qc_files)) {
 
 # Plot chromatograms
 pdf(args[7], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
-plot(0, 0, type="n", xlim=c(0,1200), ylim=c(10,15), main="Chromatograms of all MM8", xlab="rt", ylab="TIC [log(into)]")
+ymax <- NULL
+for (i in 1:length(qc_files)) ymax <- c(ymax, xchroms[[i]]$tic)
+ymin <- floor(min(ymax))
+ymax <- ceiling(max(ymax))
+plot(0, 0, type="n", xlim=c(0,1200), ylim=c(ymin,ymax), main="Chromatograms of all MM8", xlab="RT [s]", ylab="log(into)")
 for (i in 1:length(qc_files)) 
     lines(xchroms[[i]]$rt, xchroms[[i]]$tic, lwd=1, col=qc_batch_colors[which(qc_batch[i]==qc_batch_names)])
 legend("topleft", bty="n", pt.cex=0.5, cex=0.7, y.intersp=0.7, text.width=0.5, pch=20, col=qc_batch_colors, legend=qc_batch_names)
@@ -239,14 +243,14 @@ qc_stacked$into <- log(qc_stacked$into)
 # QC stacked plot
 pdf(args[8], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
 qc_stacked_samples_colors <- sapply(qc_stacked[,"batch"], function(x) { x <- qc_batch_colors[which(x==qc_batch_names)] } )
-plot(qc_stacked[,c("rt","into")], pch=20, cex=0.4, xlab="rt", ylab="TIC [log(into)]", col=qc_stacked_samples_colors, main="QC plot")
+plot(qc_stacked[,c("rt","into")], pch=20, cex=0.4, xlab="RT [s]", ylab="log(into)", col=qc_stacked_samples_colors, main="QC plot")
 legend("topleft", bty="n", pt.cex=0.5, cex=0.7, y.intersp=0.7, text.width=0.5, pch=20, col=qc_batch_colors, legend=qc_batch_names)
 dev.off()
 
 # Stacked QC plot
 pdf(args[9], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
 plot(0, 0, type="n", xlim=c(0,max(qc_stacked$rt)*4), ylim=c(min(qc_stacked$into),max(qc_stacked$into)),
-	 xaxt="n", xlab="rt", ylab="TIC [log(into)]", main="Stacked QC plot")
+	 xaxt="n", xlab="RT [s]", ylab="log(into)", main="Stacked QC plot")
 abline(v=c(1200,2400,3600), col='grey')
 for (i in qc_batch_names) {
 	points(qc_stacked[qc_stacked$batch==i,"rt"]+max(qc_stacked$rt)*(which(qc_batch_names==i)-1), qc_stacked[qc_stacked$batch==i,"into"], pch=20, cex=0.4, col=qc_batch_colors[which(qc_batch_names==i)], xaxt="n")
@@ -257,7 +261,7 @@ dev.off()
 
 # Stacked histogram of intensities
 pdf(args[10], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
-plot(density(qc_stacked[qc_stacked$batch=="winter","into"]), col=qc_batch_colors[which(qc_batch_names=="winter")], lwd=3, xlim=c(3,15), main="Density plot of log intensities")
+plot(density(qc_stacked[qc_stacked$batch=="winter","into"]), col=qc_batch_colors[which(qc_batch_names=="winter")], lwd=3, xlim=c(3,15), main="Density plot of log intensities", xlab="log(into)", ylab="Density")
 lines(density(qc_stacked[qc_stacked$batch=="summer","into"]), col=qc_batch_colors[which(qc_batch_names=="summer")], lwd=3)
 lines(density(qc_stacked[qc_stacked$batch=="autumn","into"]), col=qc_batch_colors[which(qc_batch_names=="autumn")], lwd=3)
 lines(density(qc_stacked[qc_stacked$batch=="spring","into"]), col=qc_batch_colors[which(qc_batch_names=="spring")], lwd=3)
@@ -294,8 +298,10 @@ for (i in 1:nrow(MM8)) MM8[i, "sd_into"] <- sd(qc_MM8[,i])
 
 # Plot variation of MM8 compounds in the samples
 pdf(args[11], encoding="ISOLatin1", pointsize=10, width=5, height=5, family="Helvetica")
-boxplot(qc_MM8, main="Variation of MM8 compound intensities", xlab="compounds", ylab="TIC [log(into)]", names=NA)
-text(1:ncol(qc_MM8), par("usr")[3]-(par("usr")[4]-par("usr")[3])/12, srt=-22.5, adj=c(0.5,1), labels=colnames(qc_MM8), xpd=TRUE, cex=0.9)
+par(mar=c(7,4,4,1))
+boxplot(qc_MM8, main="Variation of MM8 compound intensities", xlab="", ylab="log(into)", names=NA)
+text(1:ncol(qc_MM8), par("usr")[3]-(par("usr")[4]-par("usr")[3])/24, srt=-40, adj=c(0,1), labels=colnames(qc_MM8), xpd=TRUE, cex=0.8)
+title(xlab="Compounds", line=6, cex.lab=1)
 dev.off()
 
 # Plot MM8 compounds in each sample
@@ -305,8 +311,9 @@ rtwin <- 8
 for (j in 1:nrow(MM8)) {
 	ymax <- NULL
 	for (i in 1:length(qc_files)) ymax <- c(ymax, xchroms[[i]][xchroms[[i]]$rt>=MM8[j,"rt"]-rtwin & xchroms[[i]]$rt<=MM8[j,"rt"]+rtwin,"tic"])
-	ymax <- max(ymax)
-	plot(0, 0, xlim=c(MM8[j,"rt"]-rtwin,MM8[j,"rt"]+rtwin), ylim=c(11,14), main=paste(MM8[j,"compound"],sep=''), xlab="rt", ylab="TIC [log(into)]")
+	ymin <- floor(min(ymax))
+    ymax <- ceiling(max(ymax))
+	plot(0, 0, xlim=c(MM8[j,"rt"]-rtwin,MM8[j,"rt"]+rtwin), ylim=c(ymin,ymax), main=paste(MM8[j,"compound"],sep=''), xlab="RT [s]", ylab="log(into)")
 	for (i in 1:length(qc_files)) {
 		if (i!=24)
 		lines(xchroms[[i]]$rt, xchroms[[i]]$tic, lwd=2, col=qc_batch_samples_colors[i])
