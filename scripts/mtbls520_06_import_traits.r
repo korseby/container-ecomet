@@ -38,7 +38,11 @@ onsite <- NULL
 traits <- read.csv(args[2], header=TRUE, sep=";", quote="\"", fill=FALSE, dec=",", stringsAsFactors=FALSE)
 traits$Sample.Negative <- gsub('(.*)\\..*', '\\1', gsub('( |-|,)', '.', traits$Sample.Negativ))
 traits$Sample.Positive <- gsub('(.*)\\..*', '\\1', gsub('( |-|,)', '.', traits$Sample.Positiv))
-traits <- traits[match(mzml_names, traits$Sample.Positive),]
+if (polarity == "positive") {
+	traits <- traits[match(mzml_names, traits$Sample.Positive),]
+} else {
+	traits <- traits[match(mzml_names, traits$Sample.Negative),]
+}
 
 # Create data frame with characteristics
 charist <- as.data.frame(traits[,c("Sample","Season","Code","Species","Family","Type")])
