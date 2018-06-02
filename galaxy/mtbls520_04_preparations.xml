@@ -23,7 +23,7 @@ ${studyfile},
 echo \$studyfile_names | perl -pe 's/mzML\, /mzML\n/g' > /tmp/studyfile_names.txt;
 echo \$studyfile_files | perl -pe 's/dat\, /dat\n/g' > /tmp/studyfile_files.txt;
 mtbls520_04_preparations.sh $polarity /tmp/studyfile_names.txt /tmp/studyfile_files.txt $afile $sfile;
-mtbls520_04_preparations.r $rdata;
+mtbls520_04_preparations.r $polarity $rdata;
   ]]>
   </command>
   <inputs>
