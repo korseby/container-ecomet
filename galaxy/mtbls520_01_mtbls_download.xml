@@ -16,18 +16,46 @@ mtbls520_01_mtbls_download.sh $id $mtblszip $token 2>&1;
   <outputs>
     <data name="mtblszip" type="data" format="zip" label="MTBLS dataset" help="MTBLS study dataset in ZIP format" />
   </outputs>
-  <help><![CDATA[
-This is the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes.
-----
-Module: MTBLS Download
-Description: Download an entire MTBLS study via https
-Input parameters:
-- MetaboLights ID: The ID of the MetaboLights study, e.g. 520
-- Private Token: If this is a private study, please enter the Secret MetaboLights Token, e.g. aabbccdd-1122-4455-66ff-f0e0d0c0b0a0
-Output parameters:
-- MTBLS dataset: MTBLS study dataset in ZIP format
-----
-For updates and documentation, please visit: https://github.com/korseby/container-mtbls520
-  ]]></help>
+  <help>
+.. class:: infomark
+
+**Authors**
+
+| For updates and documentation, please visit **https://github.com/korseby/container-mtbls520** or contact **Kristian Peters (kpeters@ipb-halle.de)**.
+
+---------------------------------------------------
+
+=====================
+MTBLS520 Eco-Metabolomics workflow
+=====================
+
+-----------
+Description
+-----------
+
+| This is the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes.
+
+| Module: MTBLS Download
+
+| Description: Download an entire MTBLS study via https
+
+-----
+Input
+-----
+
+MetaboLights ID
+| The ID of the MetaboLights study, e.g. 520
+
+Private Token
+| If this is a private study, please enter the Secret MetaboLights Token, e.g. aabbccdd-1122-4455-66ff-f0e0d0c0b0a0
+
+------
+Output
+------
+
+MTBLS dataset
+| MTBLS study dataset in ZIP format
+
+  </help>
 </tool>
 
