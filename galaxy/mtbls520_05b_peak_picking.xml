@@ -40,21 +40,61 @@ mtbls520_05b_peak_picking.r temp.rdata $maf $rdata;
     <data name="maf" type="data" format="tabular" optional="False" label="Study MAF file" />
     <data name="rdata" type="data" format="rdata" optional="False" label="Preprocess Rdata file" />
   </outputs>
-  <help><![CDATA[
+  <help><
+==================================
+MTBLS520 Eco-Metabolomics workflow
+==================================
+
 This is the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes.
-----
-Module: Peak picking
-Description: Peak picking of the profiles in the MTBLS520 study.
-Input parameters:
-- Polarity: The polarity of the acquition mode, defaults to positive. Allowed values: positive or negative.
-- RAW mzML files: Dataset collection of raw mzML files of the MTBLS520 study
-- Analytical metadata: ISA-Tab Assay file
-- Sample metadata: ISA-Tab Sample file
-Output parameters:
-- Study MAF file: Metabolights Assignment File containing the feature matrix that is the outcome of peak picking and alignment.
-- Preprocess Rdata file: Please connect this Rdata file to the ecological characteristics module of the MTBLS520 workflow.
-----
-For updates and documentation, please visit: https://github.com/korseby/container-mtbls520
-  ]]></help>
+
+Module
+	| Peak picking
+	|
+
+Description
+	| Peak picking of metaboolite profiles
+	|
+
+-----
+Input
+-----
+
+Polarity
+	| The polarity of the acquition mode, defaults to positive. Allowed values: positive or negative.
+	|
+
+RAW mzML files
+	| Dataset collection of raw mzML files
+	|
+
+Analytical metadata
+	| ISA-Tab Assay file
+	|
+
+Sample metadata
+	| ISA-Tab Sample file
+	|
+
+------
+Output
+------
+
+Study MAF file
+	| Metabolights Assignment File containing the feature matrix that is the outcome of peak picking and alignment
+	|
+
+Preprocess Rdata
+	| Rdata file. Please connect this Rdata file to the ecological characteristics module of the MTBLS520 workflow
+	|
+
+---------------------------------------------------
+
+.. class:: infomark
+
+**Authors**
+
+For updates and documentation, please visit **https://github.com/korseby/container-mtbls520** or contact **Kristian Peters (kpeters@ipb-halle.de)**.
+
+  </help>
 </tool>
 

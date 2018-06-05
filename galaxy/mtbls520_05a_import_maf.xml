@@ -20,18 +20,49 @@ mtbls520_05a_import_maf.r $infile1 $infile2 $rdata;
   <outputs>
     <data name="rdata" type="data" format="rdata" label="Preprocess Rdata file" />
   </outputs>
-  <help><![CDATA[
+  <help>
+==================================
+MTBLS520 Eco-Metabolomics workflow
+==================================
+
 This is the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes.
-----
-Module: Import MAF
-Description: Import MAF file from the MTBLS520 study.
-Input parameters:
-- Input Preprocess Rdata file
-- Input study MAF file: MAF file containing the feature matrix of the MTBLS520 study
-Output parameters:
-- Preprocess Rdata file: Please connect this Rdata file to the ecological characteristics module of the MTBLS520 workflow.
-----
-For updates and documentation, please visit: https://github.com/korseby/container-mtbls520
-  ]]></help>
+
+Module
+	| Import MAF
+	|
+
+Description
+	| Import MAF file
+	|
+
+-----
+Input
+-----
+
+Input Preprocess Rdata
+	| Rdata file from the preparations module
+	|
+
+Input study MAF
+	| Metabolights Assignment file containing the feature matrix
+	|
+
+------
+Output
+------
+
+Preprocess Rdata
+	| Rdata file. Please connect this Rdata file to the ecological characteristics module of the MTBLS520 workflow.
+	|
+
+---------------------------------------------------
+
+.. class:: infomark
+
+**Authors**
+
+For updates and documentation, please visit **https://github.com/korseby/container-mtbls520** or contact **Kristian Peters (kpeters@ipb-halle.de)**.
+
+  </help>
 </tool>
 
