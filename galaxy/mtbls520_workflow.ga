@@ -2,7 +2,7 @@
     "a_galaxy_workflow": "true", 
     "annotation": "", 
     "format-version": "0.1", 
-    "name": "Metabolights 520 Eco-Metabolomics Workflow", 
+    "name": "MTBLS520 Eco-Metabolomics Workflow", 
     "steps": {
         "0": {
             "annotation": "", 
@@ -207,7 +207,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_04_preparations", 
             "tool_state": "{\"polarity\": \"\\\"pos\\\"\", \"__page__\": null, \"__rerun_remap_job_id__\": null, \"studyfolder\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hdca\\\", \\\"id\\\": 4}]}\", \"sfile\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 133}]}\", \"afile\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 133}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "75a85c36-295a-4fc1-b66e-bd43124d5308", 
             "workflow_outputs": []
@@ -295,7 +295,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_03_quality_control", 
             "tool_state": "{\"polarity\": \"\\\"pos\\\"\", \"__page__\": null, \"__rerun_remap_job_id__\": null, \"studyfolder\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hdca\\\", \\\"id\\\": 4}]}\", \"sfile\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 133}]}\", \"afile\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 133}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "64f7561a-9c32-4ddd-b744-f5aeb0dd86f8", 
             "workflow_outputs": []
@@ -331,7 +331,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_05a_import_maf", 
             "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"infile2\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 133}]}\", \"infile1\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 147}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "66580b41-ed2d-4f9a-b09d-aefaf1935951", 
             "workflow_outputs": []
@@ -403,7 +403,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_07_species_diversity", 
             "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"infile1\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 147}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "812b5dbf-35d9-4f26-8a09-60c2b21a596d", 
             "workflow_outputs": []
@@ -435,7 +435,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_08a_species_shannon", 
             "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"infile1\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 147}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "60aa3382-133c-4457-b326-c288e58e3b99", 
             "workflow_outputs": []
@@ -467,7 +467,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_08b_species_unique", 
             "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"infile1\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 147}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "00a0a037-5c83-4cd2-8fe8-906070c4d9c6", 
             "workflow_outputs": []
@@ -499,7 +499,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_08d_concentration", 
             "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"infile1\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 147}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "d14c490e-5527-42c7-b749-f5755e90592d", 
             "workflow_outputs": []
@@ -531,7 +531,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_08e_species_features", 
             "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"infile1\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 147}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "17639254-5fde-4c9b-991c-850f0e9b6984", 
             "workflow_outputs": []
@@ -603,7 +603,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_09_species_venn", 
             "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"infile1\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 147}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "6e46a23b-2d8d-417f-bdd5-d976b15e1543", 
             "workflow_outputs": []
@@ -635,7 +635,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_10_species_varpart", 
             "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"infile1\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 147}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "6a829ce9-5a60-43b0-9f4d-ebdfa4fc3cfd", 
             "workflow_outputs": []
@@ -671,7 +671,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_16_ecology_rda", 
             "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"infile1\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 147}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "bfb8926d-eaa4-4ae9-afda-fb85ecb1ddb8", 
             "workflow_outputs": []
@@ -703,7 +703,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_12_species_marchantia", 
             "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"infile1\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 147}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "2609e5e3-448f-4e5a-b348-84dc471e0f92", 
             "workflow_outputs": []
@@ -735,7 +735,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_19a_seasons_shannon", 
             "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"infile1\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 147}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "86fc93f7-2e6b-476a-ab19-b766f6981577", 
             "workflow_outputs": []
@@ -767,7 +767,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_19b_seasons_unique", 
             "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"infile1\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 147}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "b4924467-a961-429d-a7cf-f09233ed47e0", 
             "workflow_outputs": []
@@ -803,7 +803,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_08c_species_variability", 
             "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"infile1\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 147}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "71d61786-f8c5-4c65-8e03-83e4f69d4559", 
             "workflow_outputs": []
@@ -835,7 +835,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_19d_seasons_concentration", 
             "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"infile1\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 147}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "6d204730-3b87-41d2-acfb-06bef5c83466", 
             "workflow_outputs": []
@@ -867,7 +867,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_19e_seasons_features", 
             "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"infile1\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 147}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "4bca5460-7acc-4c01-b7a1-041e9cb9ac3f", 
             "workflow_outputs": []
@@ -903,7 +903,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_23_seasons_rda", 
             "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"infile1\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 147}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "eec1ab3c-05b7-4b07-9eb1-e6f8bc7e8d87", 
             "workflow_outputs": []
@@ -939,7 +939,7 @@
             "post_job_actions": {}, 
             "tool_id": "mtbls520_18_phylogeny", 
             "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"infile2\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 133}]}\", \"infile1\": \"{\\\"values\\\": [{\\\"src\\\": \\\"hda\\\", \\\"id\\\": 147}]}\"}", 
-            "tool_version": "1.0", 
+            "tool_version": "1.1", 
             "type": "tool", 
             "uuid": "6267b59e-a3f5-4c8c-a22e-98730676a7e3", 
             "workflow_outputs": []

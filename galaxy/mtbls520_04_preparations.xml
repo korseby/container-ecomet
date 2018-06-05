@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--Proposed Tool Section: [Eco-Metabolomics]-->
-<tool id="mtbls520_04_preparations" name="mtbls520_04_preparations" version="1.0">
+<tool id="mtbls520_04_preparations" name="mtbls520_04_preparations" version="1.1">
   <requirements>
     <container type="docker">korseby/mtbls520</container>
   </requirements>
-  <description>Preparations for MTBLS 520 study.</description>
+  <description>Preparations for MTBLS520 study.</description>
   <stdio>
     <regex match="" source="stderr" level="warning" description="R messages" />
     <exit_code range="1:" level="fatal" description="Tool error" />
@@ -39,11 +39,19 @@ mtbls520_04_preparations.r $polarity $rdata;
     <data name="rdata" type="data" format="rdata" optional="False" label="Preprocess Rdata file" />
   </outputs>
   <help><![CDATA[
-This is the MTBLS520 study.
-The study will be published soon. This code is work-in-progress. Do not redistribute unless study published.
-Copyright (C) 2017 Kristian Peters - IPB Halle
+This is the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes.
 ----
-More updates soon
+Module: Preparations
+Description: Preparations and preprocessing of parameters of the MTBLS520 study.
+Input parameters:
+- Polarity: The polarity of the acquition mode, defaults to positive. Allowed values: positive or negative.
+- RAW mzML files: Dataset collection of raw mzML files of the MTBLS520 study
+- Analytical metadata: ISA-Tab Assay file
+- Sample metadata: ISA-Tab Sample file
+Output parameters:
+- Preprocess Rdata file: Please connect this Rdata file to the ecological characteristics module of the MTBLS520 workflow.
+----
+For updates and documentation, please visit: https://github.com/korseby/container-mtbls520
   ]]></help>
 </tool>
 

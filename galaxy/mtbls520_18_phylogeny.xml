@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--Proposed Tool Section: [Eco-Metabolomics]-->
-<tool id="mtbls520_18_phylogeny" name="mtbls520_18_phylogeny" version="1.0">
+<tool id="mtbls520_18_phylogeny" name="mtbls520_18_phylogeny" version="1.1">
   <requirements>
     <container type="docker">korseby/mtbls520</container>
   </requirements>
@@ -22,11 +22,18 @@ mtbls520_18_phylogeny.r $infile1 $infile2 $outfile1 $outfile2;
     <data name="outfile2" type="data" format="pdf" label="Phylogeny comparison plot" />
   </outputs>
   <help><![CDATA[
-This is the MTBLS520 study.
-The study will be published soon. This code is work-in-progress. Do not redistribute unless study published.
-Copyright (C) 2017 Kristian Peters - IPB Halle
+This is the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes.
 ----
-More updates soon
+Module: Phylogeny and chemotaxonomy comparison analysis
+Description: Perform phylogeny and chemotaxonomy comparison analysis.
+Input parameters:
+- Input Rdata file
+- Input phylogeny file
+Output parameters:
+- Phylogeny Procrustes analysis plot
+- Phylogeny and chemotaxonomy comparison plot
+----
+For updates and documentation, please visit: https://github.com/korseby/container-mtbls520
   ]]></help>
 </tool>
 

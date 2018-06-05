@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--Proposed Tool Section: [Eco-Metabolomics]-->
-<tool id="mtbls520_03_quality_control" name="mtbls520_03_quality_control" version="1.0">
+<tool id="mtbls520_03_quality_control" name="mtbls520_03_quality_control" version="1.1">
   <requirements>
     <container type="docker">korseby/mtbls520</container>
   </requirements>
-  <description>Quality Control of MTBLS 520 study.</description>
+  <description>Quality Control of the MTBLS520 study</description>
   <stdio>
     <regex match="" source="stderr" level="warning" description="R messages" />
     <exit_code range="1:" level="fatal" description="Tool error" />
@@ -27,13 +27,13 @@ mtbls520_03_qc_perform.r $polarity $qcmaf $qcrtcorr $qcmzrtdev $qcmzdev $qcrtdev
   ]]>
   </command>
   <inputs>
-    <param name="polarity" type="select" value="positive" optional="False" label="MTBLS520: polarity" help="The polarity used for the mode of acquisition">
+    <param name="polarity" type="select" value="positive" optional="False" label="Polarity" help="The polarity used for the mode of acquisition">
 	    <option value="positive" selected="True">positive</option>
 	    <option value="negative">negative</option>
 	</param>
-    <param name="studyfolder" type="data_collection" collection_type="list" format="mzml" multiple="true" label="MTBLS520: QC mzML files" />
-    <param name="afile" type="data" format="tabular" label="MTBLS520: Analytical metadata" />
-    <param name="sfile" type="data" format="tabular" label="MTBLS520: Sample metadata" />
+    <param name="studyfolder" type="data_collection" collection_type="list" format="mzml" multiple="true" label="QC mzML files" />
+    <param name="afile" type="data" format="tabular" label="Analytical metadata" />
+    <param name="sfile" type="data" format="tabular" label="Sample metadata" />
   </inputs>
   <outputs>
     <data name="qcmaf" type="data" format="tabular" optional="False" label="QC MAF file" />
@@ -51,11 +51,31 @@ mtbls520_03_qc_perform.r $polarity $qcmaf $qcrtcorr $qcmzrtdev $qcmzdev $qcrtdev
     <data name="qcrdata" type="data" format="rdata" optional="False" label="QC Rdata file" />
   </outputs>
   <help><![CDATA[
-This is the MTBLS520 study.
-The study will be published soon. This code is work-in-progress. Do not redistribute unless study published.
-Copyright (C) 2017 Kristian Peters - IPB Halle
+This is the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes.
 ----
-More updates soon
+Module: Quality Control
+Description: Quality Control of the MTBLS520 study
+Input parameters:
+- Polarity: The polarity used for the mode of acquisition.
+- QC mzML files: Dataset collection of the QC mzML files.
+- Analytical metadata
+- Sample metadata
+Output parameters:
+- QC MAF file
+- QC RT Correction plot
+- QC MZ Deviation vs. RT plot
+- QC MZ Deviation for samples plot
+- QC RT Deviation for samples plot
+- QC Chromatograms plot
+- QC Profiles plot
+- QC Profiles stacked plot
+- QC Histogram plot
+- QC Compound Variation plot
+- QC Compounds plot
+- QC PCA plot
+- QC Rdata file
+----
+For updates and documentation, please visit: https://github.com/korseby/container-mtbls520
   ]]></help>
 </tool>
 
