@@ -29,27 +29,85 @@ mtbls520_09_species_venn.r $infile1 $outfile1 $outfile2 $outfile3 $outfile4 $out
     <data name="outfile10" type="data" format="pdf" label="Venn Diagram for pleurocarpous species" />
     <data name="outfile11" type="data" format="pdf" label="Venn Diagram for acrocarpous species" />
   </outputs>
-  <help><![CDATA[
+  <help>
+==================================
+MTBLS520 Eco-Metabolomics workflow
+==================================
+
 This is the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes.
-----
-Module: Venn diagrams
-Description: Create Venn diagrams for seasonal variability of species features of the MTBLS520 study.
-Input parameters:
-- Input Rdata file
-Output parameters:
-- Venn Diagram for Brachythecium rutabulum
-- Venn Diagram for Calliergonella cuspidata
-- Venn Diagram for Fissidens taxifolius
-- Venn Diagram for Grimmia pulvinata
-- Venn Diagram for Hypnum cupressiforme
-- Venn Diagram for Marchantia polymorpha
-- Venn Diagram for Plagiomnium undulatum
-- Venn Diagram for Polytrichum strictum
-- Venn Diagram for Rhytidiadelphus squarrosus
-- Venn Diagram for pleurocarpous species
-- Venn Diagram for acrocarpous species
-----
-For updates and documentation, please visit: https://github.com/korseby/container-mtbls520
-  ]]></help>
+
+Module
+	| Venn diagrams
+	|
+
+Description
+	| Create Venn diagrams for seasonal variability of species features
+	|
+
+-----
+Input
+-----
+
+Input Rdata
+	| Rdata file
+	|
+
+------
+Output
+------
+
+Venn Diagram for Brachythecium rutabulum
+	| PDF plot
+	|
+
+Venn Diagram for Calliergonella cuspidata
+	| PDF plot
+	|
+
+Venn Diagram for Fissidens taxifolius
+	| PDF plot
+	|
+
+Venn Diagram for Grimmia pulvinata
+	| PDF plot
+	|
+
+Venn Diagram for Hypnum cupressiforme
+	| PDF plot
+	|
+
+Venn Diagram for Marchantia polymorpha
+	| PDF plot
+	|
+
+Venn Diagram for Plagiomnium undulatum
+	| PDF plot
+	|
+
+Venn Diagram for Polytrichum strictum
+	| PDF plot
+	|
+
+Venn Diagram for Rhytidiadelphus squarrosus
+	| PDF plot
+	|
+
+Venn Diagram for pleurocarpous species
+	| PDF plot
+	|
+
+Venn Diagram for acrocarpous species
+	| PDF plot
+	|
+
+---------------------------------------------------
+
+.. class:: infomark
+
+**Authors**
+
+For updates and documentation, please visit **https://github.com/korseby/container-mtbls520** or contact **Kristian Peters (kpeters@ipb-halle.de)**.
+
+  </help>
 </tool>
 

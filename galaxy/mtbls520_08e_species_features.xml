@@ -19,17 +19,45 @@ mtbls520_08e_species_features.r $infile1 $outfile1;
   <outputs>
     <data name="outfile1" type="data" format="pdf" label="Species features" />
   </outputs>
-  <help><![CDATA[
+  <help>
+==================================
+MTBLS520 Eco-Metabolomics workflow
+==================================
+
 This is the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes.
-----
-Module: Species total features
-Description: Calculate species total features from the MTBLS520 study.
-Input parameters:
-- Input Rdata file
-Output parameters:
-- Species features plot
-----
-For updates and documentation, please visit: https://github.com/korseby/container-mtbls520
-  ]]></help>
+
+Module
+	| Species total features
+	|
+
+Description
+	| Calculate species total features
+	|
+
+-----
+Input
+-----
+
+Input Rdata
+	| Rdata file
+	|
+
+------
+Output
+------
+
+Species features
+	| PDF plot
+	|
+
+---------------------------------------------------
+
+.. class:: infomark
+
+**Authors**
+
+For updates and documentation, please visit **https://github.com/korseby/container-mtbls520** or contact **Kristian Peters (kpeters@ipb-halle.de)**.
+
+  </help>
 </tool>
 

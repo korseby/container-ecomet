@@ -19,17 +19,45 @@ mtbls520_14_ecology_varpart.r $infile1 $outfile1;
   <outputs>
     <data name="outfile1" type="data" format="pdf" label="Variation partitioning" />
   </outputs>
-  <help><![CDATA[
+  <help>
+==================================
+MTBLS520 Eco-Metabolomics workflow
+==================================
+
 This is the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes.
-----
-Module: Variation partitioning
-Description: Perform variation partitioning on study factors of the MTBLS520 study.
-Input parameters:
-- Input Rdata file
-Output parameters:
-- Variation partitioning plot
-----
-For updates and documentation, please visit: https://github.com/korseby/container-mtbls520
-  ]]></help>
+
+Module
+	| Seasons variation partitioning
+	|
+
+Description
+	| Perform variation partitioning of study factors
+	|
+
+-----
+Input
+-----
+
+Input Rdata
+	| Rdata file
+	|
+
+------
+Output
+------
+
+Variation partitioning
+	| PDF plot
+	|
+
+---------------------------------------------------
+
+.. class:: infomark
+
+**Authors**
+
+For updates and documentation, please visit **https://github.com/korseby/container-mtbls520** or contact **Kristian Peters (kpeters@ipb-halle.de)**.
+
+  </help>
 </tool>
 

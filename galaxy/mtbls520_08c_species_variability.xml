@@ -20,18 +20,49 @@ mtbls520_08c_species_variability.r $infile1 $outfile1 $outfile2;
     <data name="outfile1" type="data" format="pdf" label="Species variability Histogram" />
     <data name="outfile2" type="data" format="pdf" label="Species variability" />
   </outputs>
-  <help><![CDATA[
+  <help>
+==================================
+MTBLS520 Eco-Metabolomics workflow
+==================================
+
 This is the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes.
-----
-Module: Species variability
-Description: Calculate species variability from the MTBLS520 study.
-Input parameters:
-- Input Rdata file
-Output parameters:
-- Species variability Histogram
-- Species variability plot
-----
-For updates and documentation, please visit: https://github.com/korseby/container-mtbls520
-  ]]></help>
+
+Module
+	| Species variability
+	|
+
+Description
+	| Calculate species variability
+	|
+
+-----
+Input
+-----
+
+Input Rdata
+	| Rdata file
+	|
+
+------
+Output
+------
+
+Species variability Histogram
+	| PDF plot
+	|
+
+Species variability
+	| PDF plot
+	|
+
+---------------------------------------------------
+
+.. class:: infomark
+
+**Authors**
+
+For updates and documentation, please visit **https://github.com/korseby/container-mtbls520** or contact **Kristian Peters (kpeters@ipb-halle.de)**.
+
+  </help>
 </tool>
 
