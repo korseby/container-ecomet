@@ -29,32 +29,34 @@ mtbls520_01_mtbls_download.sh $id $mtblszip $token 2>&1;
 MTBLS520 Eco-Metabolomics workflow
 =====================
 
+This is the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes.
+
 -----------
 Description
 -----------
 
-| This is the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes.
+Module
+	| MTBLS Download
 
-| Module: MTBLS Download
-
-| Description: Download an entire MTBLS study via https
+Description
+	| Download an entire MTBLS study via https
 
 -----
 Input
 -----
 
 MetaboLights ID
-| The ID of the MetaboLights study, e.g. 520
+	| The ID of the MetaboLights study, e.g. 520
 
 Private Token
-| If this is a private study, please enter the Secret MetaboLights Token, e.g. aabbccdd-1122-4455-66ff-f0e0d0c0b0a0
+	| If this is a private study, please enter the Secret MetaboLights Token, e.g. aabbccdd-1122-4455-66ff-f0e0d0c0b0a0
 
 ------
 Output
 ------
 
 MTBLS dataset
-| MTBLS study dataset in ZIP format
+	| MTBLS study dataset in ZIP format
 
   </help>
 </tool>
