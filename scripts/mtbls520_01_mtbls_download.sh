@@ -18,3 +18,12 @@ else
 	wget -O "${DOWNLOAD}" "https://www.ebi.ac.uk/metabolights/MTBLS${MTBLS_ID}/files/MTBLS${MTBLS_ID}?token=${MTBLS_TOKEN}"
 fi
 
+# Check file size
+FILESIZE="$(wc -c < "${DOWNLOAD}")"
+
+if [[ $MTBLS_ID -ne 520 ]] || [[ $FILESIZE -lt 13326196452 ]]; then
+	echo "Error: Study has not been downloaded completely. Please re-run tool."
+	exit 1
+else
+	echo "Study seems to have correct size."
+fi
