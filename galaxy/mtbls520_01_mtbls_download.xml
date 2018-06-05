@@ -23,10 +23,6 @@ MTBLS520 Eco-Metabolomics workflow
 
 This is the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes.
 
------------
-Description
------------
-
 Module
 	| MTBLS Download
 	|
@@ -44,7 +40,7 @@ MetaboLights ID
 	|
 
 Private Token
-	| If this is a private study, please enter the Secret MetaboLights Token, e.g. aabbccdd-1122-4455-66ff-f0e0d0c0b0a0
+	| If this is a private study, please enter the Secret MetaboLights Token, e.g. a1f59130-6646-4443-87f3-a070985811e2
 	|
 
 ------
