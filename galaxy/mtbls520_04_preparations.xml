@@ -78,7 +78,7 @@ Output
 ------
 
 Preprocess Rdata
-	| Rdata file. Please connect this Rdata file to the ecological characteristics module of the MTBLS520 workflow.
+	| Rdata file. Please connect this Rdata file to the module import maf.
 	|
 
 ---------------------------------------------------

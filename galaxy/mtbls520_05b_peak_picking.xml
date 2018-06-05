@@ -40,7 +40,7 @@ mtbls520_05b_peak_picking.r temp.rdata $maf $rdata;
     <data name="maf" type="data" format="tabular" optional="False" label="Study MAF file" />
     <data name="rdata" type="data" format="rdata" optional="False" label="Preprocess Rdata file" />
   </outputs>
-  <help><
+  <help>
 ==================================
 MTBLS520 Eco-Metabolomics workflow
 ==================================
