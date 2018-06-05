@@ -21,19 +21,53 @@ mtbls520_18_phylogeny.r $infile1 $infile2 $outfile1 $outfile2;
     <data name="outfile1" type="data" format="pdf" label="Phylogeny Procrustes analysis" />
     <data name="outfile2" type="data" format="pdf" label="Phylogeny comparison plot" />
   </outputs>
-  <help><![CDATA[
+  <help>
+==================================
+MTBLS520 Eco-Metabolomics workflow
+==================================
+
 This is the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes.
-----
-Module: Phylogeny and chemotaxonomy comparison analysis
-Description: Perform phylogeny and chemotaxonomy comparison analysis.
-Input parameters:
-- Input Rdata file
-- Input phylogeny file
-Output parameters:
-- Phylogeny Procrustes analysis plot
-- Phylogeny and chemotaxonomy comparison plot
-----
-For updates and documentation, please visit: https://github.com/korseby/container-mtbls520
-  ]]></help>
+
+Module
+	| Phylogeny and chemotaxonomy comparison analysis
+	|
+
+Description
+	| Perform phylogeny and chemotaxonomy comparison analysis
+	|
+
+-----
+Input
+-----
+
+Input Rdata
+	| Rdata file
+	|
+
+Input phylogeny
+	| Text file
+	|
+
+------
+Output
+------
+
+Phylogeny Procrustes analysis
+	| PDF plot
+	| 
+
+Phylogeny and chemotaxonomy comparison
+	| PDF plot
+	| 
+
+---------------------------------------------------
+
+.. class:: infomark
+
+**Authors**
+
+For updates and documentation, please visit **https://github.com/korseby/container-mtbls520** or contact **Kristian Peters (kpeters@ipb-halle.de)**.
+
+  </help>
 </tool>
 

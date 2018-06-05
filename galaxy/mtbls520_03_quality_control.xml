@@ -50,32 +50,105 @@ mtbls520_03_qc_perform.r $polarity $qcmaf $qcrtcorr $qcmzrtdev $qcmzdev $qcrtdev
     <data name="qcpca" type="data" format="pdf" label="QC PCA" />
     <data name="qcrdata" type="data" format="rdata" optional="False" label="QC Rdata file" />
   </outputs>
-  <help><![CDATA[
+  <help>
+==================================
+MTBLS520 Eco-Metabolomics workflow
+==================================
+
 This is the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes.
-----
-Module: Quality Control
-Description: Quality Control of the MTBLS520 study
-Input parameters:
-- Polarity: The polarity used for the mode of acquisition.
-- QC mzML files: Dataset collection of the QC mzML files.
-- Analytical metadata
-- Sample metadata
-Output parameters:
-- QC MAF file
-- QC RT Correction plot
-- QC MZ Deviation vs. RT plot
-- QC MZ Deviation for samples plot
-- QC RT Deviation for samples plot
-- QC Chromatograms plot
-- QC Profiles plot
-- QC Profiles stacked plot
-- QC Histogram plot
-- QC Compound Variation plot
-- QC Compounds plot
-- QC PCA plot
-- QC Rdata file
-----
-For updates and documentation, please visit: https://github.com/korseby/container-mtbls520
-  ]]></help>
+
+Module
+	| Quality Control
+	|
+
+Description
+	| Quality Control
+	|
+
+-----
+Input
+-----
+
+Polarity
+	| The polarity used for the mode of acquisition
+	|
+
+QC mzML
+	| Dataset collection of the QC mzML files
+	|
+
+Analytical metadata
+	| ISA-Tab format Assay metadata file
+	| 
+
+Sample metadata
+	| ISA-Tab format Sample metadata file
+	| 
+
+------
+Output
+------
+
+QC MAF
+	| Metabolights Assignment file
+	| 
+
+QC RT Correction
+	| PDF plot
+	| 
+
+QC MZ Deviation vs. RT
+	| PDF plot
+	| 
+
+QC MZ Deviation for samples
+	| PDF plot
+	| 
+
+QC RT Deviation for samples
+	| PDF plot
+	| 
+
+QC Chromatograms
+	| PDF plot
+	| 
+
+QC Profiles
+	| PDF plot
+	| 
+
+QC Profiles stacked
+	| PDF plot
+	| 
+
+QC Histogram
+	| PDF plot
+	| 
+
+QC Compound Variation
+	| PDF plot
+	| 
+
+QC Compounds
+	| PDF plot
+	| 
+
+QC PCA
+	| PDF plot
+	| 
+
+QC Rdata
+	| Rdata file
+	| 
+
+---------------------------------------------------
+
+.. class:: infomark
+
+**Authors**
+
+For updates and documentation, please visit **https://github.com/korseby/container-mtbls520** or contact **Kristian Peters (kpeters@ipb-halle.de)**.
+
+  </help>
 </tool>
 

@@ -19,17 +19,45 @@ mtbls520_19e_seasons_features.r $infile1 $outfile1;
   <outputs>
     <data name="outfile1" type="data" format="pdf" label="Seasons features" />
   </outputs>
-  <help><![CDATA[
+  <help>
+==================================
+MTBLS520 Eco-Metabolomics workflow
+==================================
+
 This is the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes.
-----
-Module: Seasons total features
-Description: Calculate seasons total features from the MTBLS520 study.
-Input parameters:
-- Input Rdata file
-Output parameters:
-- Seasons features plot
-----
-For updates and documentation, please visit: https://github.com/korseby/container-mtbls520
-  ]]></help>
+
+Module
+	| Seasons total features
+	|
+
+Description
+	| Calculate seasons total features
+	|
+
+-----
+Input
+-----
+
+Input Rdata
+	| Rdata file
+	|
+
+------
+Output
+------
+
+Seasons features
+	| PDF plot
+	| 
+
+---------------------------------------------------
+
+.. class:: infomark
+
+**Authors**
+
+For updates and documentation, please visit **https://github.com/korseby/container-mtbls520** or contact **Kristian Peters (kpeters@ipb-halle.de)**.
+
+  </help>
 </tool>
 

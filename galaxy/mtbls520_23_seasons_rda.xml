@@ -20,18 +20,49 @@ mtbls520_23_seasons_rda.r $infile1 $outfile1 $outfile2;
     <data name="outfile1" type="data" format="csv" label="Seasons dbRDA summary" />
     <data name="outfile2" type="data" format="pdf" label="Seasons dbRDA plot" />
   </outputs>
-  <help><![CDATA[
+  <help>
+==================================
+MTBLS520 Eco-Metabolomics workflow
+==================================
+
 This is the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes.
-----
-Module: dbRDA
-Description: Perform constrained distance-based redundancy analysis (dbRDA) for the factor seasons on the data from the MTBLS520 study.
-Input parameters:
-- Input Rdata file
-Output parameters:
-- Seasons dbRDA summary
-- Seasons dbRDA plot
-----
-For updates and documentation, please visit: https://github.com/korseby/container-mtbls520
-  ]]></help>
+
+Module
+	| Seasons dbRDA
+	|
+
+Description
+	| Perform constrained distance-based redundancy analysis (dbRDA) for the factor seasons on the data
+	|
+
+-----
+Input
+-----
+
+Input Rdata
+	| Rdata file
+	|
+
+------
+Output
+------
+
+Seasons dbRDA summary
+	| Text summary
+	| 
+
+Seasons dbRDA
+	| PDF plot
+	| 
+
+---------------------------------------------------
+
+.. class:: infomark
+
+**Authors**
+
+For updates and documentation, please visit **https://github.com/korseby/container-mtbls520** or contact **Kristian Peters (kpeters@ipb-halle.de)**.
+
+  </help>
 </tool>
 
