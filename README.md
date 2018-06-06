@@ -44,5 +44,5 @@ The workflow should be started with the following parameter settings:
 
 [4] Peters, K., Gorzolka, K., Bruelheide, H. & Neumann, S. (2018): Container for the Galaxy workflow to process the MTBLS520 dataset. DockerHub. https://hub.docker.com/r/korseby/mtbls520/
 
-[5] Peters, K., Gorzolka, K., Bruelheide, H., & Neumann, S. (2018). Code for the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes using the MTBLS520 dataset (Version v1.0). Zenodo. http://doi.org/10.5281/zenodo.1248510
+[5] Peters, K., Gorzolka, K., Bruelheide, H., & Neumann, S. (2018). Code for the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes using the MTBLS520 dataset (Version v1.1). Zenodo. http://doi.org/10.5281/zenodo.1284246 
 
