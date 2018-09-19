@@ -1,6 +1,8 @@
 # Code for the computational workflow to study the seasonal variation of secondary metabolites in nine different bryophytes using the MTBLS520 dataset
 This repository includes code to run the Galaxy workflow, which processes the MTBLS520 dataset, and to build the Docker container including required libraries, R packages, scripts and Galaxy tool wrappers for the publication [1] in Nature Scientific Data.
 
+[![DOI](https://zenodo.org/badge/107677250.svg)](https://zenodo.org/badge/latestdoi/107677250)
+
 ## Short Description
 This repository includes code for a Galaxy workflow to process the MTBLS520 dataset [3], which was generated from 108 samples of 9 bryophyte species obtained in four seasons using an untargeted liquid chromatography coupled with mass spectrometry (LC/MS) acquisition method.
 
