@@ -8,7 +8,8 @@ First, please ask your local Galaxy administrator to install the modules as list
 
 Now, edit your `tool_conf.xml` and add the following entries:
 
-```  <section name="Eco-Metabolomics" id="ecomet">
+```
+  <section name="Eco-Metabolomics" id="ecomet">
     <tool file="ecomet/mtbls520_01_mtbls_download.xml"/>
     <tool file="ecomet/mtbls520_02a_raw_extract.xml"/>
     <tool file="ecomet/mtbls520_02b_qc_extract.xml"/>
